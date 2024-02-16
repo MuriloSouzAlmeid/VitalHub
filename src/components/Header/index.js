@@ -7,9 +7,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 export const Header = () => {
     return (
-        <LinearGradient
-            colors={['rgba(96,191,197,1)', 'rgba(73,107,186,1)']}
-        >
             <ContainerHeader>
                 <HeaderContent>
                     <WelcomeView>
@@ -25,6 +22,5 @@ export const Header = () => {
                 </HeaderContent>
 
             </ContainerHeader>
-        </LinearGradient>
     )
 }

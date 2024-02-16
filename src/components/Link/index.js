@@ -37,9 +37,11 @@ export const LinkAccount = ({ url, children }) =>
         {children}
     </LinkSemiBold>
 
-export const LinkCancel = ({ url, children }) =>
+export const LinkCancel = ({ manipulationFunction, children }) =>
     <LinkSemiBoldCancel
-        onPress={() => abrirUrl(url)}
+        onPress={() => {
+            manipulationFunction(false)
+        }}
     >
         {children}
     </LinkSemiBoldCancel>

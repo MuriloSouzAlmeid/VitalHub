@@ -24,10 +24,13 @@ export const LinkSemiBold = styled.Text`
 export const LinkSemiBoldCancel = styled(LinkSemiBold)`
     margin-top: 30px;
     font-size: 14px;
+    text-align: center;
+    /* border: 1px solid black; */
 `
 
 export const LinkSemiBoldVerifyEmail = styled(LinkSemiBold)`
     text-decoration: none;
+    margin-bottom: 20px;
 `
 
 export const LinkSemiBoldReenviarEmail = styled(LinkSemiBoldCancel)`

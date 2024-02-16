@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const BoxInput = styled.View`
     width: 100%;
@@ -9,8 +9,8 @@ export const BoxInput = styled.View`
 
 export const BoxInputRow = styled(BoxInput)`
     flex-direction: row;
-    gap: 0;
     justify-content: space-between;
+    margin: 0;
 `
 
 export const BoxButton = styled(BoxInput)`
@@ -22,18 +22,26 @@ export const ContentAccount = styled.View`
 `
 
 export const UserContentBox = styled.View`
-    height: 100px;
-    width: 80%;
-    border-radius: 5px;
-    background-color: white;
-    elevation: 10;
-    top: 225px;
-    left: 10%;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
     gap: 10px;
-    z-index: 100;
+    margin: 20px 5% -45px;
+
+    ${props => !props.editavel && css`  
+            justify-content: center;
+            align-items: center;  
+            elevation: 10;
+            top: 225px;
+            left: 10%;
+            position: absolute;
+            z-index: 100;
+            height: 100px;
+            width: 80%;
+            border-radius: 5px;
+            background-color: white;
+            margin: 0;
+        `
+    }
+
+
 `
 
 export const InputContentBox = styled.View`

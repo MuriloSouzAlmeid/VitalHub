@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Title = styled.Text`
     font-family: "MontserratAlternates_600SemiBold";
@@ -61,11 +61,16 @@ export const TextRegular = styled.Text`
 `
 
 export const EmailUserText = styled(TextRegular)`
-    font-size: 14px;
+    font-size: ${props => props.editavel ? `16px` : `14px`};
+    ${props => props.editavel && css`text-align: left;`}
 `
 
 export const InputLabel = styled.Text`
     font-size: 16px;
     color: black;
     font-family: "Quicksand_600SemiBold";
+`
+
+export const UserNamePerfilText = styled(SemiBoldText)`
+    font-size: ${props => props.editavel ? `20px` : `16px`};
 `

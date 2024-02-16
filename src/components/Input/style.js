@@ -17,6 +17,8 @@ export const InputVirifyEmail = styled(InputField)`
     font-size: 40px;
     font-family: "Quicksand_600SemiBold";
     color: #34898F;
+    width: 20%;
+    margin-bottom: 30px;
 `
 
 export const PerfilInputField = styled(InputField).attrs({

@@ -1,17 +1,26 @@
-import { EmailUserText, SemiBoldText, Title } from "../../components/Text/style";
+import { ButtonTitle, EmailUserText, SemiBoldText, Title, UserNamePerfilText } from "../../components/Text/style";
 import { ContainerApp, ContainerForm, ContainerPerfilPage } from "../../components/Container/style";
 import { UserImagePerfil } from "../../components/UserImage/styled";
 import { BoxInputRow, UserContentBox } from "../../components/Box/style";
 import { BoxInputField } from "../../components/Box";
+import { Button } from "../../components/Button/styled";
+import { useState } from "react";
+import { LinkCancel } from "../../components/Link";
+import { View } from "react-native";
 
-export const PerfilDeUsuario = () =>
-    <ContainerPerfilPage>
+export const PerfilDeUsuario = () => {
+    const [editavel, setEditavel] = useState(false) 
+
+    return (
+        <ContainerPerfilPage>
             <UserImagePerfil
                 source={require("../../assets/images/user1-image.png")}
             />
-            <UserContentBox>
-                <SemiBoldText>Nome do Usuário</SemiBoldText>
-                <EmailUserText>exemplo.email@gmail.com</EmailUserText>
+            <UserContentBox
+                editavel={editavel}
+            >
+                <UserNamePerfilText editavel={editavel}>Nome do Usuário</UserNamePerfilText>
+                <EmailUserText editavel={editavel}>exemplo.email@gmail.com</EmailUserText>
             </UserContentBox>
 
 
@@ -21,10 +30,12 @@ export const PerfilDeUsuario = () =>
                 <BoxInputField
                     labelText={"Data De Nascimento:"}
                     placeholderText={"12/11/2005"}
+                    editable={editavel}
                 />
                 <BoxInputField
                     labelText={"CPF:"}
                     placeholderText={"470.150.038/05"}
+                    editable={editavel}
                 />
                 <BoxInputField
                     labelText={"Endereço:"}
@@ -35,6 +46,7 @@ export const PerfilDeUsuario = () =>
                         labelText={"CEP:"}
                         placeholderText={"09432-530"}
                         fieldWidth={47}
+                        editable={editavel}
                     />
                     <BoxInputField
                         labelText={"Cidade:"}
@@ -42,5 +54,22 @@ export const PerfilDeUsuario = () =>
                         fieldWidth={47}
                     />
                 </BoxInputRow>
+                {editavel ? 
+                <>
+                    <Button onPress={() => setEditavel(false)}>
+                        <ButtonTitle>Salvar Edições</ButtonTitle>
+                    </Button> 
+                </>
+                : <Button onPress={() => setEditavel(true)}>
+                    <ButtonTitle>Editar</ButtonTitle>
+                </Button>}
+                    
             </ContainerForm>
-    </ContainerPerfilPage>
+            {editavel ? <LinkCancel manipulationFunction={setEditavel}>Cancelar</LinkCancel> : null}
+            
+            <View style={{height: 30}}></View>
+        </ContainerPerfilPage>
+    )
+}
+
+
