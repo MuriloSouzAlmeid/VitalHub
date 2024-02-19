@@ -1,4 +1,4 @@
-import { ButtonTitle, ButtonTitleGoogle, TextAccount, TitleLogin } from "../../components/Text/style";
+import { ButtonTitle, ButtonTitleGoogle, ButtonTitleLight, TextAccount, TitleLogin } from "../../components/Text/style";
 import { LogoVitalHub } from "../../components/Logo";
 import { BoxButton, BoxInput, ContentAccount } from "../../components/Box/style";
 import { Input } from "../../components/Input";
@@ -27,8 +27,8 @@ export const Login = () =>
                 <ButtonTitle>Entrar</ButtonTitle>
             </Button>
             <ButtonGoogle>
-                <AntDesign name="google" size={20} color={"#4D659D"} />
-                <ButtonTitleGoogle>Entrar com Google</ButtonTitleGoogle>
+                <AntDesign name="google" size={20} color={"#496BBA"} />
+                <ButtonTitleLight>Entrar com Google</ButtonTitleLight>
             </ButtonGoogle>
         </BoxButton>
         <ContentAccount>

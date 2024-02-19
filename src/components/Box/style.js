@@ -14,7 +14,9 @@ export const BoxInputRow = styled(BoxInput)`
 `
 
 export const BoxButton = styled(BoxInput)`
-    margin-bottom: 30px;
+`
+
+export const BoxButtonRow = styled(BoxInputRow)`
 `
 
 export const ContentAccount = styled.View`

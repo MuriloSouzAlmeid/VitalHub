@@ -46,7 +46,17 @@ export const ButtonTitle = styled(MediumText)`
     text-transform: uppercase;
 `
 
-export const ButtonTitleGoogle = styled(ButtonTitle)`
+export const ButtonTitleLight = styled(ButtonTitle)`
+    color: #496BBA;
+`
+
+export const ButtonSemiBoldTitle = styled.Text`
+    color: white;
+    font-size: 12px;
+    font-family: "MontserratAlternates_600SemiBold";
+`
+
+export const ButtonSemiBoldTitleLight = styled(ButtonSemiBoldTitle)`
     color: #496BBA;
 `
 
