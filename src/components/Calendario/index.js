@@ -11,6 +11,8 @@ export const Calendario = () => {
     const ultimoDia = new Date(dataAtual.getFullYear(), dataAtual.getMonth() + 1, 0)
 
     moment.updateLocale("pt-br", {
+        months: "Janeiro_Fevereiro_Março_Abril_Maio_Junho_Julho_Agosto_Setembro_Outubro_Novembro_Dezembro".split("_"),
+
         weekdaysShort: "Dom_Seg_Ter_Qua_Qui_Sex_Sab".split("_")
     })
 

@@ -84,3 +84,8 @@ export const InputLabel = styled.Text`
 export const UserNamePerfilText = styled(SemiBoldText)`
     font-size: ${props => props.editavel ? `20px` : `16px`};
 `
+
+export const TextLight = styled.Text`
+    font-family: "Quicksand_400Regular";
+    font-size: 14px;
+`

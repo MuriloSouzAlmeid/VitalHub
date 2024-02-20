@@ -6,9 +6,10 @@ import { Button, ButtonLight } from "../../components/Button/styled";
 import { ButtonTitle, ButtonTitleLight } from "../../components/Text/style";
 import { ButtonHome } from "../../components/Button";
 import { useEffect, useState } from "react";
+import { ListaConsultas } from "../../components/FlatList";
 
 export const Home = () => {
-    const [statusFiltro, setStatusFiltro] = useState("Agendadas")
+    const [statusFiltro, setStatusFiltro] = useState("agendada")
 
     const consultasAgendadas = [
         {
@@ -17,14 +18,40 @@ export const Home = () => {
             idade: 14,
             nivel: "Rotina",
             horario: "14:00",
-            imagem: "caminhoAqui"
+            foto: "../../assets/images/foto-murilo.jpg",
+            situacao: "agendada"
         },{
             id: 2,
             nome: "Mayara Almeida",
             idade: 16,
             nivel: "Exame",
             horario: "18:30",
-            imagem: "caminhoAqui"
+            foto: "caminhoAqui",
+            situacao: "agendada"
+        },{
+            id: 3,
+            nome: "Matheus Dantas",
+            idade: 24,
+            nivel: "Urgência",
+            horario: "21:20",
+            foto: "caminhoAqui",
+            situacao: "realizada"
+        },{
+            id: 4,
+            nome: "Andréia Katia",
+            idade: 41,
+            nivel: "Exame",
+            horario: "08:50",
+            foto: "caminhoAqui",
+            situacao: "cancelada"
+        },{
+            id: 5,
+            nome: "Jeferson Júnior",
+            idade: 44,
+            nivel: "Rotina",
+            horario: "10:10",
+            foto: "caminhoAqui",
+            situacao: "cancelada"
         }
     ]
     
@@ -36,22 +63,26 @@ export const Home = () => {
                 <BoxButtonRow>
                     <ButtonHome
                         buttonText={"Agendadas"}
-                        actived={statusFiltro === "Agendadas"}
+                        situacao = {"agendada"}
+                        actived={statusFiltro === "agendada"}
                         manipulationFunction={setStatusFiltro}
                     />
                     <ButtonHome
                         buttonText={"Realizadas"}
-                        actived={statusFiltro === "Realizadas"}
+                        situacao = {"realizada"}
+                        actived={statusFiltro === "realizada"}
                         manipulationFunction={setStatusFiltro}
                     />
                     <ButtonHome
                         buttonText={"Canceladas"}
-                        actived={statusFiltro === "Canceladas"}
+                        situacao = {"cancelada"}
+                        actived={statusFiltro === "cancelada"}
                         manipulationFunction={setStatusFiltro}
                     />
                 </BoxButtonRow>
                 <ListaConsultas
                     dados={consultasAgendadas}
+                    statusConsulta={statusFiltro}
                 />
             </ContainerApp>
 

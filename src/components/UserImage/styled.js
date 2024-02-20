@@ -15,8 +15,8 @@ export const UserImageContent = styled(UserImage)`
 `
 
 export const UserImageCart = styled(UserImage)`
-    height: 180px;
-    width: 100%;
+    height: 80px;
+    width: 77px;
 `
 
 export const UserImagePerfil = styled.Image`

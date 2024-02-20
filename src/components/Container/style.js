@@ -6,7 +6,7 @@ export const ContainerApp = styled.SafeAreaView`
     flex: 1;
     background-color: #FAFAFA;
     width: 100%;
-    padding: 0 5%;
+    padding: 0 5% 15px;
     /* justify-content: center; */
 `
 
