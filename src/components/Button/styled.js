@@ -18,3 +18,7 @@ export const ButtonGoogle = styled(ButtonLight)`
     flex-direction: row;
     gap: 27px;
 `
+
+export const ButtonModal = styled(Button)`
+    width: 90%;
+` 

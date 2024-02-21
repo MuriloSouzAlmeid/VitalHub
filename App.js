@@ -10,6 +10,7 @@ import { RedefinirSenha } from './src/screens/RedefinirSenha/redefinir-senha';
 import { VerificarEmail } from './src/screens/VerificarEmail/verificar-email';
 import { Home } from './src/screens/Home/home';
 import { PerfilDeUsuario } from './src/screens/PerfilDeUsuario/perfil-de-usuario';
+import { PaginaDeProntuario } from './src/screens/Prontuario/prontuario';
 
 //instância de um objeto da classe Native Stack Navigator para acessar seus métodos
 const Stack = createNativeStackNavigator();
@@ -74,6 +75,11 @@ export default function App() {
             name="PerfilDeUsuario"
             component={PerfilDeUsuario}
             option={{title: "Perfil de Usuário"}}
+          />
+          <Stack.Screen
+            name="PaginaDeProntuario"
+            component={PaginaDeProntuario}
+            option={{title: "Página de Prontuário"}}
           />
         </Stack.Navigator>
       </NavigationContainer>

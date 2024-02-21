@@ -41,3 +41,5 @@ export const ContainerHome = styled.View`
     flex: 1;
     width: 100%;
 `
+
+export const ContainerProntuario = styled(ContainerPerfilPage)``

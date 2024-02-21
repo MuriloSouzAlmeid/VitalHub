@@ -65,7 +65,7 @@ export const HorarioText = styled(TextTipoConsulta)`
 
 `
 
-export const CancelText = styled(LinkSemiBoldCancel)`
+export const CardTextCancelApointment = styled(LinkSemiBoldCancel)`
     text-decoration: none;
     color: ${props => props.statusConsulta == "agendada" ? "#C81D25" : "#344F8F"};
     margin-top: -0px;

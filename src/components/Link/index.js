@@ -43,7 +43,7 @@ export const LinkCancel = ({ manipulationFunction, children }) =>
             manipulationFunction(false)
         }}
     >
-        {children}
+        Cancelar
     </LinkSemiBoldCancel>
 
 export const LinkVerifyEmail = ({ url, children }) =>

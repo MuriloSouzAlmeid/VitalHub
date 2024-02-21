@@ -23,3 +23,9 @@ export const UserImagePerfil = styled.Image`
     width: 100%;
     height: 280px;
 `
+
+export const UserImageModal = styled(UserImage)`
+    width: 100%;
+    height: 180px;
+    margin-bottom: 20px;
+`

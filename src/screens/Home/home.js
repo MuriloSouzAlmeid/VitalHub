@@ -7,9 +7,18 @@ import { ButtonTitle, ButtonTitleLight } from "../../components/Text/style";
 import { ButtonHome } from "../../components/Button";
 import { useEffect, useState } from "react";
 import { ListaConsultas } from "../../components/FlatList";
+import { ApointmentModal, CancelattionModal } from "../../components/Modal";
 
 export const Home = () => {
+    //state para o estado da lista
     const [statusFiltro, setStatusFiltro] = useState("agendada")
+
+    //state para a exibição dos modais
+    const [showModalCancel, setShowModalCancel] = useState(false)
+    const [showModalApointment, setShowModalApointment] = useState(false)
+
+    //state para guardar os dados da consulta e renderizar no modal
+    const [infoConsulta, setInfoConsulta] = useState({})
 
     const consultasAgendadas = [
         {
@@ -18,6 +27,7 @@ export const Home = () => {
             idade: 14,
             nivel: "Rotina",
             horario: "14:00",
+            email: "miguel.souza@gmail.com",
             foto: "../../assets/images/foto-murilo.jpg",
             situacao: "agendada"
         },{
@@ -26,6 +36,7 @@ export const Home = () => {
             idade: 16,
             nivel: "Exame",
             horario: "18:30",
+            email: "mayara.almeida@gmail.com",
             foto: "caminhoAqui",
             situacao: "agendada"
         },{
@@ -35,6 +46,7 @@ export const Home = () => {
             nivel: "Urgência",
             horario: "21:20",
             foto: "caminhoAqui",
+            email: "matheus.dantas@gmail.com",
             situacao: "realizada"
         },{
             id: 4,
@@ -43,6 +55,7 @@ export const Home = () => {
             nivel: "Exame",
             horario: "08:50",
             foto: "caminhoAqui",
+            email: "andreia.katia@gmail.com",
             situacao: "cancelada"
         },{
             id: 5,
@@ -51,7 +64,17 @@ export const Home = () => {
             nivel: "Rotina",
             horario: "10:10",
             foto: "caminhoAqui",
+            email: "jeferson.junior@gmail.com",
             situacao: "cancelada"
+        },{
+            id: 6,
+            nome: "Guilherme Garbelini",
+            idade: 18,
+            nivel: "Exame",
+            horario: "19:30",
+            foto: "caminhoAqui",
+            email: "guilerme.garbelini@gmail.com",
+            situacao: "realizada"
         }
     ]
     
@@ -83,8 +106,28 @@ export const Home = () => {
                 <ListaConsultas
                     dados={consultasAgendadas}
                     statusConsulta={statusFiltro}
+                    onPressCancel={() => setShowModalCancel(true)}
+                    onPressApointment={() => setShowModalApointment(true)}
+                    loadInfoConsulta={setInfoConsulta}
                 />
             </ContainerApp>
+
+
+            {/* Modal Cancelar */}
+
+            <CancelattionModal 
+                setShowModalCancel={setShowModalCancel} 
+                visible={showModalCancel}
+            />
+
+
+            {/* Modal Prontuário */}
+
+            <ApointmentModal
+                setShowModalApointment={setShowModalApointment}
+                visible={showModalApointment}
+                informacoes={infoConsulta}
+            />
 
         </ContainerHome>
     )
