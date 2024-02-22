@@ -28,3 +28,16 @@ export const PerfilInputField = styled(InputField).attrs({
     border-color: #F5F3F3;
     background-color: #F5F3F3;
 `
+
+export const ApointmentInputField = styled(InputField).attrs({
+    placeholderTextColor: "#34898F"
+})
+`
+    background-color: transparent;
+    border-color: #49B3BA;
+    padding-bottom: ${props => `${props.fieldHeight}px`};
+
+    /* &::placeholder{
+        position: absolute;
+    } */
+`

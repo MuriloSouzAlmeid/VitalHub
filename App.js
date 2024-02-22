@@ -8,7 +8,7 @@ import { Login } from './src/screens/Login/login';
 import { Cadastro } from './src/screens/Cadastro/cadastro';
 import { RedefinirSenha } from './src/screens/RedefinirSenha/redefinir-senha';
 import { VerificarEmail } from './src/screens/VerificarEmail/verificar-email';
-import { Home } from './src/screens/Home/home';
+import { Home, HomePaciente } from './src/screens/Home/home';
 import { PerfilDeUsuario } from './src/screens/PerfilDeUsuario/perfil-de-usuario';
 import { PaginaDeProntuario } from './src/screens/Prontuario/prontuario';
 
@@ -74,12 +74,17 @@ export default function App() {
           <Stack.Screen
             name="PerfilDeUsuario"
             component={PerfilDeUsuario}
-            option={{title: "Perfil de Usuário"}}
+            options={{title: "Perfil de Usuário"}}
           />
           <Stack.Screen
             name="PaginaDeProntuario"
             component={PaginaDeProntuario}
-            option={{title: "Página de Prontuário"}}
+            options={{title: "Página de Prontuário"}}
+          />
+          <Stack.Screen
+            name="PaginaHomePaciente"
+            component={HomePaciente}
+            options={{title: "Home Paciente"}}
           />
         </Stack.Navigator>
       </NavigationContainer>

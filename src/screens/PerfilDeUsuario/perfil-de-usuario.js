@@ -31,15 +31,18 @@ export const PerfilDeUsuario = () => {
                     labelText={"Data De Nascimento:"}
                     placeholderText={"12/11/2005"}
                     editable={editavel}
+                    inputPerfil
                 />
                 <BoxInputField
                     labelText={"CPF:"}
                     placeholderText={"470.150.038/05"}
                     editable={editavel}
+                    inputPerfil
                 />
                 <BoxInputField
                     labelText={"Endereço:"}
                     placeholderText={"Rua Das Goiabeiras, n16 - Pilar Velho"}
+                    inputPerfil
                 />
                 <BoxInputRow>
                     <BoxInputField
@@ -47,11 +50,13 @@ export const PerfilDeUsuario = () => {
                         placeholderText={"09432-530"}
                         fieldWidth={47}
                         editable={editavel}
+                        inputPerfil
                     />
                     <BoxInputField
                         labelText={"Cidade:"}
                         placeholderText={"Ribeirão Pires"}
                         fieldWidth={47}
+                        inputPerfil
                     />
                 </BoxInputRow>
                 {editavel ? 

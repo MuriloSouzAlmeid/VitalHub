@@ -38,6 +38,7 @@ export const ContainerForm = styled.View`
 `
 
 export const ContainerHome = styled.View`
+    position: relative;
     flex: 1;
     width: 100%;
 `

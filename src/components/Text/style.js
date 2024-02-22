@@ -57,7 +57,7 @@ export const ButtonSemiBoldTitle = styled.Text`
 `
 
 export const ButtonSemiBoldTitleLight = styled(ButtonSemiBoldTitle)`
-    color: #496BBA;
+    color: ${props => props.modal ? "#34898F" : "#496BBA"};
 `
 
 export const TextAccount = styled(MediumText)`
@@ -73,6 +73,10 @@ export const TextRegular = styled.Text`
 export const EmailUserText = styled(TextRegular)`
     font-size: ${props => props.editavel ? `16px` : `14px`};
     ${props => props.editavel && css`text-align: left;`}
+`
+
+export const AgeUserText = styled(TextRegular)`
+    
 `
 
 export const InputLabel = styled.Text`

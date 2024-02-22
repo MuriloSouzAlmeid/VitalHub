@@ -1,7 +1,7 @@
-import { InputField, InputVirifyEmail, PerfilInputField } from "./style";
+import { ApointmentInputField, InputField, InputVirifyEmail, PerfilInputField } from "./style";
 
 export const Input = ({
-    placeholderText, keyType = "default", onChangeText = null, maxLength, fieldvalue = null, verifyEmail = false, inputPerfil = false, editable = false
+    placeholderText, keyType = "default", onChangeText = null, maxLength, fieldvalue = null, verifyEmail = false, inputPerfil = false, editable = false, fieldHeight = "16", apointment = false
 }) => {
     if (verifyEmail) {
         return (
@@ -25,7 +25,19 @@ export const Input = ({
                 editable={editable}
             />
         )
-    } else {
+    } else if (apointment) {
+        return (
+            <ApointmentInputField
+                placeholder={placeholderText}
+                keyboardType={keyType}
+                onChangeText={onChangeText}
+                maxLength={maxLength}
+                value={fieldvalue}
+                editable={editable}
+                fieldHeight={fieldHeight}
+            />
+        )
+    } else{
         return (
             <InputField
                 placeholder={placeholderText}

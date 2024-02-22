@@ -16,3 +16,22 @@ export const ButtonHome = ({ widthValue = 30, actived, buttonText, manipulationF
             </ButtonLight>
     )
 }
+
+export const ButtonModalConsulta = ({ widthValue = 30, actived, buttonText, manipulationFunction, situacao }) => {
+    return (
+        actived ? <Button
+            onPress={() => manipulationFunction(situacao)}
+            width={widthValue}
+            modal
+        >
+            <ButtonSemiBoldTitle>{buttonText}</ButtonSemiBoldTitle>
+        </Button>
+            : <ButtonLight
+                onPress={() => manipulationFunction(situacao)}
+                width={widthValue}
+                modal
+            >
+                <ButtonSemiBoldTitleLight modal>{buttonText}</ButtonSemiBoldTitleLight>
+            </ButtonLight>
+    )
+}

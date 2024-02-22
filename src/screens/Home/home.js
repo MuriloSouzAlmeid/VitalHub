@@ -2,12 +2,12 @@ import { Header } from "../../components/Header";
 import { Calendario } from "../../components/Calendario";
 import { ContainerApp, ContainerHome } from "../../components/Container/style";
 import { BoxButtonRow } from "../../components/Box/style";
-import { Button, ButtonLight } from "../../components/Button/styled";
-import { ButtonTitle, ButtonTitleLight } from "../../components/Text/style";
+import { FontAwesome } from '@expo/vector-icons';
 import { ButtonHome } from "../../components/Button";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ListaConsultas } from "../../components/FlatList";
-import { ApointmentModal, CancelattionModal } from "../../components/Modal";
+import { AgendarConsultaModal, ApointmentModal, CancelattionModal } from "../../components/Modal";
+import { AgendarConsultaButton } from "./style";
 
 export const Home = () => {
     //state para o estado da lista
@@ -30,7 +30,7 @@ export const Home = () => {
             email: "miguel.souza@gmail.com",
             foto: "../../assets/images/foto-murilo.jpg",
             situacao: "agendada"
-        },{
+        }, {
             id: 2,
             nome: "Mayara Almeida",
             idade: 16,
@@ -39,7 +39,7 @@ export const Home = () => {
             email: "mayara.almeida@gmail.com",
             foto: "caminhoAqui",
             situacao: "agendada"
-        },{
+        }, {
             id: 3,
             nome: "Matheus Dantas",
             idade: 24,
@@ -48,7 +48,7 @@ export const Home = () => {
             foto: "caminhoAqui",
             email: "matheus.dantas@gmail.com",
             situacao: "realizada"
-        },{
+        }, {
             id: 4,
             nome: "Andréia Katia",
             idade: 41,
@@ -57,7 +57,7 @@ export const Home = () => {
             foto: "caminhoAqui",
             email: "andreia.katia@gmail.com",
             situacao: "cancelada"
-        },{
+        }, {
             id: 5,
             nome: "Jeferson Júnior",
             idade: 44,
@@ -66,7 +66,7 @@ export const Home = () => {
             foto: "caminhoAqui",
             email: "jeferson.junior@gmail.com",
             situacao: "cancelada"
-        },{
+        }, {
             id: 6,
             nome: "Guilherme Garbelini",
             idade: 18,
@@ -77,7 +77,7 @@ export const Home = () => {
             situacao: "realizada"
         }
     ]
-    
+
     return (
         <ContainerHome>
             <Header />
@@ -86,19 +86,19 @@ export const Home = () => {
                 <BoxButtonRow>
                     <ButtonHome
                         buttonText={"Agendadas"}
-                        situacao = {"agendada"}
+                        situacao={"agendada"}
                         actived={statusFiltro === "agendada"}
                         manipulationFunction={setStatusFiltro}
                     />
                     <ButtonHome
                         buttonText={"Realizadas"}
-                        situacao = {"realizada"}
+                        situacao={"realizada"}
                         actived={statusFiltro === "realizada"}
                         manipulationFunction={setStatusFiltro}
                     />
                     <ButtonHome
                         buttonText={"Canceladas"}
-                        situacao = {"cancelada"}
+                        situacao={"cancelada"}
                         actived={statusFiltro === "cancelada"}
                         manipulationFunction={setStatusFiltro}
                     />
@@ -115,8 +115,8 @@ export const Home = () => {
 
             {/* Modal Cancelar */}
 
-            <CancelattionModal 
-                setShowModalCancel={setShowModalCancel} 
+            <CancelattionModal
+                setShowModalCancel={setShowModalCancel}
                 visible={showModalCancel}
             />
 
@@ -129,6 +129,122 @@ export const Home = () => {
                 informacoes={infoConsulta}
             />
 
+        </ContainerHome>
+    )
+}
+
+export const HomePaciente = () => {
+    //state para o estado da lista
+    const [statusFiltro, setStatusFiltro] = useState("agendada")
+
+    //state para a exibição dos modais
+    const [showModalAgendarConsulta, setShowAgendarConsulta] = useState(false)
+
+    //state para guardar os dados da consulta e renderizar no modal
+    const [infoConsulta, setInfoConsulta] = useState({})
+
+    const consultasAgendadas = [
+        {
+            id: 1,
+            nome: "Dr. Miguel",
+            idade: 27,
+            nivel: "Rotina",
+            horario: "14:00",
+            email: "miguel.souza@gmail.com",
+            foto: "../../assets/images/foto-murilo.jpg",
+            situacao: "agendada"
+        }, {
+            id: 2,
+            nome: "Dra. Mayara",
+            idade: 32,
+            nivel: "Exame",
+            horario: "18:30",
+            email: "mayara.almeida@gmail.com",
+            foto: "caminhoAqui",
+            situacao: "agendada"
+        }, {
+            id: 3,
+            nome: "Dr. Matheus",
+            idade: 51,
+            nivel: "Urgência",
+            horario: "21:20",
+            foto: "caminhoAqui",
+            email: "matheus.dantas@gmail.com",
+            situacao: "realizada"
+        }, {
+            id: 4,
+            nome: "Dra. Andréia",
+            idade: 41,
+            nivel: "Exame",
+            horario: "08:50",
+            foto: "caminhoAqui",
+            email: "andreia.katia@gmail.com",
+            situacao: "cancelada"
+        }, {
+            id: 5,
+            nome: "Dr. Jeferson",
+            idade: 44,
+            nivel: "Rotina",
+            horario: "10:10",
+            foto: "caminhoAqui",
+            email: "jeferson.junior@gmail.com",
+            situacao: "cancelada"
+        }, {
+            id: 6,
+            nome: "Dr. Guilherme",
+            idade: 25,
+            nivel: "Exame",
+            horario: "19:30",
+            foto: "caminhoAqui",
+            email: "guilerme.garbelini@gmail.com",
+            situacao: "realizada"
+        }
+    ]
+
+    return (
+        <ContainerHome>
+            <Header />
+            <Calendario />
+            <ContainerApp>
+                <BoxButtonRow>
+                    <ButtonHome
+                        buttonText={"Agendadas"}
+                        situacao={"agendada"}
+                        actived={statusFiltro === "agendada"}
+                        manipulationFunction={setStatusFiltro}
+                    />
+                    <ButtonHome
+                        buttonText={"Realizadas"}
+                        situacao={"realizada"}
+                        actived={statusFiltro === "realizada"}
+                        manipulationFunction={setStatusFiltro}
+                    />
+                    <ButtonHome
+                        buttonText={"Canceladas"}
+                        situacao={"cancelada"}
+                        actived={statusFiltro === "cancelada"}
+                        manipulationFunction={setStatusFiltro}
+                    />
+                </BoxButtonRow>
+                <ListaConsultas
+                    dados={consultasAgendadas}
+                    statusConsulta={statusFiltro}
+                    onPressCancel={() => setShowModalCancel(true)}
+                    onPressApointment={() => setShowModalApointment(true)}
+                    loadInfoConsulta={setInfoConsulta}
+                />
+            </ContainerApp>
+
+            {/* Botão para agendar consulta */}
+            <AgendarConsultaButton onPress={() => setShowAgendarConsulta(true)}>
+                <FontAwesome name="stethoscope" size={32} color="white" />
+            </AgendarConsultaButton>
+
+            {/* Modal de Agendar Consulta */}
+            <AgendarConsultaModal
+                visible={showModalAgendarConsulta}
+                setShowModal={setShowAgendarConsulta}
+            />
         </ContainerHome>
     )
 }
