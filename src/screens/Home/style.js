@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ContainerApp } from "../../components/Container/style";
 
 export const AgendarConsultaButton = styled.TouchableHighlight.attrs({
     activeOpacity: 1,
@@ -15,4 +16,8 @@ export const AgendarConsultaButton = styled.TouchableHighlight.attrs({
     /* bottom: 21px; */
     justify-content: center;
     align-items: center;
+`
+
+export const HomeContent = styled(ContainerApp)`
+    gap: 32px;
 `

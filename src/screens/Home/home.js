@@ -7,7 +7,7 @@ import { ButtonHome } from "../../components/Button";
 import { useState } from "react";
 import { ListaConsultas } from "../../components/FlatList";
 import { AgendarConsultaModal, ApointmentModal, CancelattionModal } from "../../components/Modal";
-import { AgendarConsultaButton } from "./style";
+import { AgendarConsultaButton, HomeContent } from "./style";
 
 export const Home = () => {
     //state para o estado da lista
@@ -139,6 +139,10 @@ export const HomePaciente = () => {
 
     //state para a exibição dos modais
     const [showModalAgendarConsulta, setShowAgendarConsulta] = useState(false)
+    
+    //state para a exibição dos modais
+    const [showModalCancel, setShowModalCancel] = useState(false)
+    const [showModalApointment, setShowModalApointment] = useState(false)
 
     //state para guardar os dados da consulta e renderizar no modal
     const [infoConsulta, setInfoConsulta] = useState({})
@@ -205,7 +209,7 @@ export const HomePaciente = () => {
         <ContainerHome>
             <Header />
             <Calendario />
-            <ContainerApp>
+            <HomeContent>
                 <BoxButtonRow>
                     <ButtonHome
                         buttonText={"Agendadas"}
@@ -233,12 +237,28 @@ export const HomePaciente = () => {
                     onPressApointment={() => setShowModalApointment(true)}
                     loadInfoConsulta={setInfoConsulta}
                 />
-            </ContainerApp>
+            </HomeContent>
 
             {/* Botão para agendar consulta */}
             <AgendarConsultaButton onPress={() => setShowAgendarConsulta(true)}>
                 <FontAwesome name="stethoscope" size={32} color="white" />
             </AgendarConsultaButton>
+
+            {/* Modal Cancelar */}
+
+            <CancelattionModal
+                setShowModalCancel={setShowModalCancel}
+                visible={showModalCancel}
+            />
+
+
+            {/* Modal Prontuário */}
+
+            <ApointmentModal
+                setShowModalApointment={setShowModalApointment}
+                visible={showModalApointment}
+                informacoes={infoConsulta}
+            />
 
             {/* Modal de Agendar Consulta */}
             <AgendarConsultaModal

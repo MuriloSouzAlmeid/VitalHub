@@ -1,6 +1,6 @@
 import { View } from "react-native"
 import { FlatListStyle } from "./style"
-import { CardConsulta } from "../Card"
+import { CardClinica, CardConsulta, CardMedico } from "../Card"
 
 export const ListaConsultas = ({ dados, statusConsulta, onPressCancel, onPressApointment, loadInfoConsulta }) => {
     return (
@@ -24,3 +24,17 @@ export const ListaConsultas = ({ dados, statusConsulta, onPressCancel, onPressAp
         />
     )
 }
+
+export const ListaClinicas = ({ dados }) =>
+    <FlatListStyle
+        data={dados}
+        keyExtractor={item => item.id}
+        renderItem={({ item, index }) => <CardClinica firstItem={index === 0 ? true : false} dados={item} />}
+    />
+
+export const ListaMedicos = ({ dados }) =>
+    <FlatListStyle
+        data={dados}
+        keyExtractor={item => item.id}
+        renderItem={({ item, index }) => <CardMedico firstItem={index === 0 ? true : false} dados={item} />}
+    />

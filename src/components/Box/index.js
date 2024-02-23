@@ -1,12 +1,14 @@
+import { ButtonModal } from "../Button/styled";
 import { Input } from "../Input";
 import { InputField, PerfilInputField } from "../Input/style";
-import { InputLabel } from "../Text/style";
+import { LinkCancel } from "../Link";
+import { ButtonTitle, InputLabel } from "../Text/style";
 import { InputContentBox } from "./style";
 
 export const BoxInputField = ({
-    labelText, placeholderText, fieldWidth = "100", 
+    labelText, placeholderText, fieldWidth = "100",
     keyType = "default", onChangeText = null, maxLength, fieldValue = null, editable = false, fieldHeight = "16", apointment = false, inputPerfil
-}) => 
+}) =>
     <InputContentBox fieldWidth={fieldWidth}>
         <InputLabel>{labelText}</InputLabel>
 
@@ -22,3 +24,12 @@ export const BoxInputField = ({
             apointment={apointment}
         />
     </InputContentBox>
+
+export const ButtonContinuarBox = ({manipulationFunction = null}) => 
+    <>
+        <ButtonModal>
+            <ButtonTitle>Continuar</ButtonTitle>
+        </ButtonModal>
+
+        <LinkCancel manipulationFunction={manipulationFunction}>Cancelar</LinkCancel>
+    </>
