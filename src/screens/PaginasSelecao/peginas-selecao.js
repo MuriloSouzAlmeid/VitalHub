@@ -1,5 +1,9 @@
-import { ButtonContinuarBox } from "../../components/Box";
+import { useState } from "react";
+import { BoxInputSelect, ButtonContinuarBox } from "../../components/Box";
+import { CalendarioCompleto } from "../../components/Calendario";
 import { ListaClinicas, ListaMedicos } from "../../components/FlatList";
+import { InputSelect } from "../../components/Input";
+import { ConfirmarConsultaModal } from "../../components/Modal";
 import { ContainerSelectPage, TitleSelecao } from "./style";
 
 export const SelecionarClinica = () => {
@@ -73,15 +77,31 @@ export const SelecionarMedico = () => {
             /> */}
             <ListaMedicos
                 dados={listaMedicos}
-            /><ButtonContinuarBox/>
+            />
+            <ButtonContinuarBox/>
         </ContainerSelectPage>
     )
 }
 
 export const SelecionarData = () => {
+    const [showModalConfirmarConsulta, setShowModalConfirmarConsulta] = useState(false)
+
     return (
         <ContainerSelectPage>
             <TitleSelecao>Selecionar Data</TitleSelecao>
+            <CalendarioCompleto/>
+            <BoxInputSelect
+                labelText={"Selecione um horário disponível:"}
+            />
+            <ButtonContinuarBox
+                manipulationFunction={setShowModalConfirmarConsulta}
+            />
+
+            <ConfirmarConsultaModal
+
+                visible={showModalConfirmarConsulta}
+                setShowModal={setShowModalConfirmarConsulta}
+            />
         </ContainerSelectPage>
     )
 }

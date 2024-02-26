@@ -23,5 +23,5 @@ export const ButtonGoogle = styled(ButtonLight)`
 `
 
 export const ButtonModal = styled(Button)`
-    width: 90%;
+    width: 95%;
 ` 

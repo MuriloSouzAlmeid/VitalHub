@@ -49,4 +49,5 @@ export const UserContentBox = styled.View`
 export const InputContentBox = styled.View`
     width: ${props => `${props.fieldWidth}%`};
     gap: 10px;
+    /* padding-left: 5%; */
 `

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TextRegular } from "../Text/style";
+import { TextLight, TextRegular } from "../Text/style";
 
 export const PatientModal = styled.View`
     flex: 1;
@@ -49,6 +49,29 @@ export const ConsultaModal = styled(ModalContent)`
     height: 550px;
 `
 
+export const DadosConsultaText = styled(TextLight)``
+
+export const DadosConsultaTitle = styled(TextRegular)`
+    text-align: left;
+`
+
 export const BoxInputConsulta = styled.View`
     gap: 10px;
+`
+
+export const ResumoConsultaBox = styled.View`
+    width: 90%;
+    margin-top: 16px;
+`
+
+export const DadosConsultaBox = styled.View`
+    width: 100%;
+    margin-bottom: 30px;
+    gap: 20px;
+    margin-top: 30px;
+`
+
+export const LinhaDadosConsulta = styled.View`
+    width: 100%;
+    gap: 8px;
 `

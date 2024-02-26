@@ -36,8 +36,4 @@ export const ApointmentInputField = styled(InputField).attrs({
     background-color: transparent;
     border-color: #49B3BA;
     padding-bottom: ${props => `${props.fieldHeight}px`};
-
-    /* &::placeholder{
-        position: absolute;
-    } */
 `

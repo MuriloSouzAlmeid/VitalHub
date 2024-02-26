@@ -1,5 +1,5 @@
 import { ButtonModal } from "../Button/styled";
-import { Input } from "../Input";
+import { Input, InputSelect } from "../Input";
 import { InputField, PerfilInputField } from "../Input/style";
 import { LinkCancel } from "../Link";
 import { ButtonTitle, InputLabel } from "../Text/style";
@@ -25,11 +25,22 @@ export const BoxInputField = ({
         />
     </InputContentBox>
 
-export const ButtonContinuarBox = ({manipulationFunction = null}) => 
+export const ButtonContinuarBox = ({manipulationFunction = null, openModalFunction = null}) => 
     <>
-        <ButtonModal>
+        <ButtonModal onPress={() => manipulationFunction(true)}>
             <ButtonTitle>Continuar</ButtonTitle>
         </ButtonModal>
 
         <LinkCancel manipulationFunction={manipulationFunction}>Cancelar</LinkCancel>
     </>
+
+export const BoxInputSelect = ({labelText}) => {
+    return(
+        <InputContentBox
+            fieldWidth={"90"}
+        >
+            <InputLabel>{labelText}</InputLabel>
+            <InputSelect/>
+        </InputContentBox>
+    )
+}

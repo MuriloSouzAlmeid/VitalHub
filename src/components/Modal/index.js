@@ -1,12 +1,13 @@
 import { Modal } from "react-native"
-import { BoxInputConsulta, ConsultaModal, ModalConsultaForm, ModalContent, ModalSubtitle, ModalText, ModalTextRow, PatientModal } from "./style"
-import { ButtonTitle, Title } from "../Text/style"
+import { BoxInputConsulta, ConsultaModal, DadosConsultaBox, DadosConsultaText, DadosConsultaTitle, LinhaDadosConsulta, ModalConsultaForm, ModalContent, ModalSubtitle, ModalText, ModalTextRow, PatientModal, ResumoConsultaBox } from "./style"
+import { ButtonTitle, SemiBoldText, TextRegular, Title } from "../Text/style"
 import { ButtonModal } from "../Button/styled"
 import { LinkCancel } from "../Link"
 import { UserImageModal } from "../UserImage/styled"
 import { useState } from "react"
 import { ButtonModalConsulta } from "../Button"
 import { BoxButtonRow } from "../Box/style"
+import { ButtonContinuarBox } from "../Box"
 
 export const CancelattionModal = ({ visible, setShowModalCancel, ...rest }) => {
     return (
@@ -123,6 +124,48 @@ export const AgendarConsultaModal = ({ visible, setShowModal, ...resto }) => {
                     </ButtonModal>
                     <LinkCancel manipulationFunction={setShowModal}>Cancelar</LinkCancel>
                 </ConsultaModal>
+            </PatientModal>
+        </Modal>
+    )
+}
+
+export const ConfirmarConsultaModal = ({ visible, setShowModal = null, ...resto }) => {
+    return (
+        <Modal
+            {...resto}
+            visible={visible}
+            transparent
+            animationType="fade"
+        >
+            <PatientModal>
+                <ModalContent>
+                    <Title>Agendar consulta</Title>
+                    <ResumoConsultaBox>
+                        <TextRegular>Consulte os dados selecionados para a sua consulta</TextRegular>
+                        <DadosConsultaBox>
+                            <LinhaDadosConsulta>
+                                <DadosConsultaTitle>Data da consulta</DadosConsultaTitle>
+                                <DadosConsultaText>1 de Novembro de 2023</DadosConsultaText>
+                            </LinhaDadosConsulta>
+                            <LinhaDadosConsulta>
+                                <DadosConsultaTitle>Médico(a) da consulta</DadosConsultaTitle>
+                                <DadosConsultaText>Dra Alessandra</DadosConsultaText>
+                                <DadosConsultaText>Demartologa, Esteticista</DadosConsultaText>
+                            </LinhaDadosConsulta>
+                            <LinhaDadosConsulta>
+                                <DadosConsultaTitle>Local da consulta</DadosConsultaTitle>
+                                <DadosConsultaText>São Paulo, SP</DadosConsultaText>
+                            </LinhaDadosConsulta>
+                            <LinhaDadosConsulta>
+                                <DadosConsultaTitle>Tipo da consulta</DadosConsultaTitle>
+                                <DadosConsultaText>Rotina</DadosConsultaText>
+                            </LinhaDadosConsulta>
+                        </DadosConsultaBox>
+                    </ResumoConsultaBox>
+                    <ButtonContinuarBox
+                        manipulationFunction={() => setShowModal(false)}
+                    />
+                </ModalContent>
             </PatientModal>
         </Modal>
     )

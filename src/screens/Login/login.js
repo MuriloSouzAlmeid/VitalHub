@@ -7,7 +7,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { ContainerApp } from "../../components/Container/style";
 import { Button, ButtonGoogle } from "../../components/Button/styled";
 
-export const Login = () =>
+export const Login = ({navigation}) =>
     <ContainerApp>
         <LogoVitalHub />
         <TitleLogin>Entrar ou criar conta</TitleLogin>
@@ -20,13 +20,13 @@ export const Login = () =>
                 placeholderText={"Senha"}
 
             />
-            <LinkRedefinirSenha url={"https://www.google.com.br/?hl=pt-BR"}>Esqueceu sua senha?</LinkRedefinirSenha>
+            <LinkRedefinirSenha url={"Cadastro"}>Esqueceu sua senha?</LinkRedefinirSenha>
         </BoxInput>
         <BoxButton>
-            <Button>
+            <Button onPress={() => navigation.navigate("Home")}>
                 <ButtonTitle>Entrar</ButtonTitle>
             </Button>
-            <ButtonGoogle>
+            <ButtonGoogle onPress={() => navigation.navigate("VerificarEmail")}>
                 <AntDesign name="google" size={20} color={"#496BBA"} />
                 <ButtonTitleLight>Entrar com Google</ButtonTitleLight>
             </ButtonGoogle>
