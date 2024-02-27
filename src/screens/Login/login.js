@@ -32,7 +32,7 @@ export const Login = ({navigation}) =>
             </ButtonGoogle>
         </BoxButton>
         <ContentAccount>
-            <TextAccount>Não tem conta? </TextAccount>
-            <LinkAccount url={"https://sig.ufabc.edu.br/sigaa/verTelaLogin.do"} >Crie sua conta aqui</LinkAccount>
+            <TextAccount>Não tem conta?</TextAccount>
+            <LinkAccount url={"https://sig.ufabc.edu.br/sigaa/verTelaLogin.do"} > Crie sua conta aqui</LinkAccount>
         </ContentAccount>
     </ContainerApp>

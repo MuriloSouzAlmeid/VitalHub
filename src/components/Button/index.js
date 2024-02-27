@@ -17,7 +17,7 @@ export const ButtonHome = ({ widthValue = 30, actived, buttonText, manipulationF
     )
 }
 
-export const ButtonModalConsulta = ({ widthValue = 30, actived, buttonText, manipulationFunction, situacao }) => {
+export const ButtonModalConsulta = ({ widthValue = 30, actived, buttonText, manipulationFunction = null, situacao }) => {
     return (
         actived ? <Button
             onPress={() => manipulationFunction(situacao)}

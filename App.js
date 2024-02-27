@@ -12,6 +12,8 @@ import { Home, HomePaciente } from './src/screens/Home/home';
 import { PerfilDeUsuario } from './src/screens/PerfilDeUsuario/perfil-de-usuario';
 import { PaginaDeProntuario } from './src/screens/Prontuario/prontuario';
 import { SelecionarClinica, SelecionarData, SelecionarMedico } from './src/screens/PaginasSelecao/peginas-selecao';
+import { LocalConsulta } from './src/screens/LocalConsulta/localConsulta';
+import { VisualizarPrescricao } from './src/screens/VisualizarPrescricao/visualizarPrescricao';
 
 //instância de um objeto da classe Native Stack Navigator para acessar seus métodos
 const Stack = createNativeStackNavigator();
@@ -101,6 +103,16 @@ export default function App() {
             name="SelecionarData"
             component={SelecionarData}
             options={{title: "Selecionar Data"}}
+          />
+          <Stack.Screen
+            name="LocalConsulta"
+            component={LocalConsulta}
+            options={{title: "Local da Consulta"}}
+          />
+          <Stack.Screen
+            name="VisualizarPrescricao"
+            component={VisualizarPrescricao}
+            options={{title: "Visualizar Prescrição"}}
           />
         </Stack.Navigator>
       </NavigationContainer>

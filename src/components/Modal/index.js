@@ -111,9 +111,9 @@ export const AgendarConsultaModal = ({ visible, setShowModal, ...resto }) => {
                             <BoxButtonRow>
                                 <ButtonModalConsulta
                                     buttonText={"Informe a localização"}
-                                    situacao={"rotina"}
-                                    actived={false}
+                                    situacao={nivelConsulta}
                                     manipulationFunction={setNivelConsulta}
+                                    actived={false}
                                     widthValue={"100"}
                                 />
                             </BoxButtonRow>
@@ -170,3 +170,33 @@ export const ConfirmarConsultaModal = ({ visible, setShowModal = null, ...resto 
         </Modal>
     )
 }
+
+export const MedicoModal = ({visible, setShowModal = null, ...resto}) => (
+    <Modal
+        {...resto}
+        visible={visible}
+        transparent
+        animationType="fade"
+    >
+        <PatientModal>
+                <ModalContent>
+                    <UserImageModal
+                        source={require("../../assets/images/doctor_image_modal.png")}
+                    />
+
+                    <Title>Dr. Fulano</Title>
+
+                    <ModalTextRow>
+                        <ModalText>Clínico Geral</ModalText>
+                        <ModalText>CRM-11204</ModalText>
+                    </ModalTextRow>
+
+                    <ButtonModal>
+                        <ButtonTitle>Ver Local da Consulta</ButtonTitle>
+                    </ButtonModal>
+
+                    <LinkCancel manipulationFunction={() => setShowModal(false)}>Cancelar</LinkCancel>
+                </ModalContent>
+            </PatientModal>
+    </Modal>
+)

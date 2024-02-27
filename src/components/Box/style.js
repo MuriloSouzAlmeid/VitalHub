@@ -25,7 +25,9 @@ export const ContentAccount = styled.View`
 
 export const UserContentBox = styled.View`
     gap: 10px;
-    margin: 20px 5% -45px;
+    margin: 20px 0 -45px;
+    align-items: center;
+    justify-content: center;
 
     ${props => !props.editavel && css`  
             justify-content: center;

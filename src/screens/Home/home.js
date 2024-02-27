@@ -6,7 +6,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { ButtonHome } from "../../components/Button";
 import { useState } from "react";
 import { ListaConsultas } from "../../components/FlatList";
-import { AgendarConsultaModal, ApointmentModal, CancelattionModal } from "../../components/Modal";
+import { AgendarConsultaModal, ApointmentModal, CancelattionModal, MedicoModal } from "../../components/Modal";
 import { AgendarConsultaButton, HomeContent } from "./style";
 
 export const Home = () => {
@@ -142,6 +142,7 @@ export const HomePaciente = () => {
     
     //state para a exibição dos modais
     const [showModalCancel, setShowModalCancel] = useState(false)
+    const [showModalMedico, setShowModalMedico] = useState(false)
     const [showModalApointment, setShowModalApointment] = useState(false)
 
     //state para guardar os dados da consulta e renderizar no modal
@@ -151,6 +152,8 @@ export const HomePaciente = () => {
         {
             id: 1,
             nome: "Dr. Miguel",
+            crm: "15286",
+            especialidadesMedico: "Clínico geral",
             idade: 27,
             nivel: "Rotina",
             horario: "14:00",
@@ -160,6 +163,8 @@ export const HomePaciente = () => {
         }, {
             id: 2,
             nome: "Dra. Mayara",
+            crm: "11086",
+            especialidadesMedico: "Neurocirurgião",
             idade: 32,
             nivel: "Exame",
             horario: "18:30",
@@ -258,6 +263,11 @@ export const HomePaciente = () => {
                 setShowModalApointment={setShowModalApointment}
                 visible={showModalApointment}
                 informacoes={infoConsulta}
+            />
+
+            <MedicoModal
+                visible={showModalMedico}
+                setShowModal={setShowModalMedico}
             />
 
             {/* Modal de Agendar Consulta */}
