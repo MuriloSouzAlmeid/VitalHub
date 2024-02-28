@@ -7,7 +7,7 @@ import { InputContentBox } from "./style";
 
 export const BoxInputField = ({
     labelText, placeholderText, fieldWidth = "100",
-    keyType = "default", onChangeText = null, maxLength, fieldValue = null, editable = false, fieldHeight = "16", apointment = false, inputPerfil
+    keyType = "default", onChangeText = null, maxLength, fieldValue = null, editable = false, fieldHeight = "16", apointment = false, inputPerfil, center = false
 }) =>
     <InputContentBox fieldWidth={fieldWidth}>
         <InputLabel>{labelText}</InputLabel>
@@ -17,11 +17,12 @@ export const BoxInputField = ({
             keyboardType={keyType}
             maxLength={maxLength}
             onChangeText={onChangeText}
-            value={fieldValue}
+            fieldvalue={fieldValue}
             inputPerfil={inputPerfil}
             editable={editable}
             fieldHeight={fieldHeight}
             apointment={apointment}
+            center={center}
         />
     </InputContentBox>
 

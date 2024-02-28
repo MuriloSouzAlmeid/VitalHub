@@ -29,7 +29,7 @@ export const ContainerPerfilPage = styled.ScrollView`
 
 export const ContainerForm = styled.View`
     flex: 1;
-    margin: 75px 0 0;
+    margin: 75px 0 30px;
     width: 100%;
     gap: 25px;
     justify-content: center;

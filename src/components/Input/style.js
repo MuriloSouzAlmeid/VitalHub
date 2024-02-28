@@ -1,12 +1,17 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const InputField = styled.TextInput.attrs({
-    placeholderTextColor: '#34898F'
+    placeholderTextColor: '#34898F',
+    multiline: true
 })`
     border: 2px solid #49B3BA;
     border-radius: 5px;
     width: 100%;
     padding: 16px;
+    ${props => props.center && css`
+        justify-content: center;
+        align-items: center;
+    `}
 `
 
 export const InputVirifyEmail = styled(InputField)`
@@ -27,6 +32,10 @@ export const PerfilInputField = styled(InputField).attrs({
 `
     border-color: #F5F3F3;
     background-color: #F5F3F3;
+    padding-bottom: ${props => `${props.fieldHeight}px`};
+    color: #4E4B59;
+    font-size: 14px;
+    font-family: "MontserratAlternates_500Medium";
 `
 
 export const ApointmentInputField = styled(InputField).attrs({
