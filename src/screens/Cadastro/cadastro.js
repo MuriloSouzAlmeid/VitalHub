@@ -3,10 +3,11 @@ import { Button } from "../../components/Button/styled";
 import { ContainerApp } from "../../components/Container/style";
 import { Input } from "../../components/Input";
 import { LinkCancel } from "../../components/Link";
+import { LinkSemiBold } from "../../components/Link/style";
 import { LogoVitalHub } from "../../components/Logo";
 import { ButtonTitle, TextRegular, TitleCadastro } from "../../components/Text/style";
 
-export const Cadastro = () =>
+export const Cadastro = ({navigation}) =>
     <ContainerApp>
         <LogoVitalHub />
         <TitleCadastro>Criar conta</TitleCadastro>
@@ -22,8 +23,8 @@ export const Cadastro = () =>
                 placeholderText={"Confirmar senha"}
             />
         </BoxInput>
-        <Button>
-            <ButtonTitle>Cadastrar</ButtonTitle>
+        <Button onPress={() => navigation.navigate("VerificarEmail")}>
+            <ButtonTitle onPress={() => navigation.navigate("VerificarEmail")}>Cadastrar</ButtonTitle>
         </Button>
-        <LinkCancel url={"https://term.ooo/"} >Cancelar</LinkCancel>
+        <LinkCancel onPress={() => navigation.navigate("Login")} >Cancelar</LinkCancel>
     </ContainerApp>

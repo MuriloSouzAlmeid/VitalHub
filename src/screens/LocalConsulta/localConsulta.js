@@ -2,6 +2,7 @@ import { BoxInputField } from "../../components/Box";
 import { BoxInputRow, UserContentBox } from "../../components/Box/style";
 import { Button } from "../../components/Button/styled";
 import { ContainerApp, ContainerForm } from "../../components/Container/style";
+import { LinkVoltar } from "../../components/Link/style";
 import { ButtonTitle, EmailUserText, UserNamePerfilText } from "../../components/Text/style";
 import { ClinicaContentBox, ClinicaImage, ContainerLocalConsulta } from "./style";
 
@@ -38,9 +39,9 @@ export const LocalConsulta = () => (
                         inputPerfil
                     />
                 </BoxInputRow>
-                <Button>
-                    <ButtonTitle>Voltar</ButtonTitle>
-                </Button>
+                <LinkVoltar>
+                    Voltar
+                </LinkVoltar>
             </ContainerForm>
     </ContainerLocalConsulta>
 )

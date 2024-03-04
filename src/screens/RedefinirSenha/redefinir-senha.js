@@ -5,7 +5,7 @@ import { Input } from "../../components/Input";
 import { LogoVitalHub } from "../../components/Logo";
 import { ButtonTitle, TextRegular, TitleRedefinirSenha } from "../../components/Text/style";
 
-export const RedefinirSenha = () => 
+export const RedefinirSenha = ({navigation}) => 
     <ContainerApp>
         <LogoVitalHub/>
         <TitleRedefinirSenha>Redefinir senha</TitleRedefinirSenha>
@@ -18,7 +18,7 @@ export const RedefinirSenha = () =>
                 placeholderText={"confirmar nova senha"}
             />
         </BoxInput>
-        <Button>
+        <Button onPress={() => navigation.navigate("Login")}>
             <ButtonTitle>Confirmar nova senha</ButtonTitle>
         </Button>
     </ContainerApp>

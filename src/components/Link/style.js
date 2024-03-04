@@ -35,3 +35,7 @@ export const LinkSemiBoldVerifyEmail = styled(LinkSemiBold)`
 
 export const LinkSemiBoldReenviarEmail = styled(LinkSemiBoldCancel)`
 `
+
+export const LinkVoltar = styled(LinkSemiBoldCancel)`
+    font-size: 16px;
+`

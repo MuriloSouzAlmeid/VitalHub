@@ -10,6 +10,7 @@ import { UserDataApointment } from "../Prontuario/style";
 import { ButtonImageSubmit, ButtonImageSubmitContent, ButtonImageSubmitText, CancelImageSubmit, ImageInputBox, ImageInputBoxField, ImageInputBoxText, ImageSubmitBox } from "./style";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { LinkCancel } from "../../components/Link";
+import { LinkSemiBoldCancel, LinkVoltar } from "../../components/Link/style";
 
 export const VisualizarPrescricao = () => {
     const dadosPrescricao = {
@@ -93,7 +94,9 @@ tudo normal`
                     fieldvalue={dadosPrescricao.resultados}
                 />
 
-                <LinkCancel manipulationFunction={() => console.warn("voltando")}/>
+                <LinkVoltar>
+                    Voltar
+                </LinkVoltar>
             </ContainerForm>
         </ContainerPerfilPage>
     )

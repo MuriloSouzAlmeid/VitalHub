@@ -6,6 +6,7 @@ import { LinkAccount, LinkRedefinirSenha } from "../../components/Link";
 import { AntDesign } from '@expo/vector-icons';
 import { ContainerApp } from "../../components/Container/style";
 import { Button, ButtonGoogle } from "../../components/Button/styled";
+import { LinkSemiBold } from "../../components/Link/style";
 
 export const Login = ({navigation}) =>
     <ContainerApp>
@@ -20,7 +21,7 @@ export const Login = ({navigation}) =>
                 placeholderText={"Senha"}
 
             />
-            <LinkRedefinirSenha url={"Cadastro"}>Esqueceu sua senha?</LinkRedefinirSenha>
+            <LinkRedefinirSenha onPress={() => navigation.navigate("RedefinirSenha")}>Esqueceu sua senha?</LinkRedefinirSenha>
         </BoxInput>
         <BoxButton>
             <Button onPress={() => navigation.navigate("Home")}>
@@ -33,6 +34,6 @@ export const Login = ({navigation}) =>
         </BoxButton>
         <ContentAccount>
             <TextAccount>Não tem conta?</TextAccount>
-            <LinkAccount url={"https://sig.ufabc.edu.br/sigaa/verTelaLogin.do"} > Crie sua conta aqui</LinkAccount>
+            <LinkSemiBold onPress={() => navigation.navigate("Cadastro")} > Crie sua conta aqui</LinkSemiBold>
         </ContentAccount>
     </ContainerApp>

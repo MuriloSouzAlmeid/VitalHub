@@ -15,12 +15,10 @@ const abrirUrl = async (url) => {
     }
 }
 
-export const LinkRedefinirSenha = ({ url, children }) => {
+export const LinkRedefinirSenha = ({ onPress, children }) => {
     return (
         <LinkMediumLogin
-            onPress={() => {
-                abrirUrl(url)
-            }}
+            onPress={onPress}
 
         >
             {children}
@@ -30,18 +28,13 @@ export const LinkRedefinirSenha = ({ url, children }) => {
 
 export const LinkAccount = ({ url, children }) =>
     <LinkSemiBold
-        onPress={() => {
-            abrirUrl(url)
-        }}
     >
         {children}
     </LinkSemiBold>
 
-export const LinkCancel = ({ manipulationFunction, children }) =>
+export const LinkCancel = ({ onPress, children }) =>
     <LinkSemiBoldCancel
-        onPress={() => {
-            manipulationFunction(false)
-        }}
+        onPress={onPress}
     >
         Cancelar
     </LinkSemiBoldCancel>

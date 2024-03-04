@@ -6,7 +6,7 @@ import { LinkReenviarEmail, LinkVerifyEmail } from "../../components/Link";
 import { LogoVitalHub } from "../../components/Logo";
 import { ButtonTitle, TextRegular, TitleVerificarEmail } from "../../components/Text/style"
 
-export const VerificarEmail = () =>
+export const VerificarEmail = ({navigation}) =>
     <ContainerApp>
         <LogoVitalHub />
         <TitleVerificarEmail>
@@ -44,8 +44,8 @@ export const VerificarEmail = () =>
                 keyType="numeric"
             /> 
         </BoxInputRow>
-        <Button>
-            <ButtonTitle>Entrar</ButtonTitle>
+        <Button onPress={() => navigation.navigate("Home")}>
+            <ButtonTitle onPress={() => navigation.navigate("Home")}>Entrar</ButtonTitle>
         </Button>
         <LinkReenviarEmail url={"https://www.google.com/intl/pt-BR/gmail/about/"}>Reenviar Código</LinkReenviarEmail>
     </ContainerApp>

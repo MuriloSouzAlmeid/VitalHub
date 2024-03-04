@@ -42,12 +42,15 @@ export const ImageInputBox = styled(InputContentBox)`
     width: 100%;
 `
 
-export const ImageInputBoxField = styled(PerfilInputField)`
-    padding: 46px;
-    justify-content: space-around;
+export const ImageInputBoxField = styled.View`
+    padding: 46px 60px;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
     gap: 5px;
+    border-color: #F5F3F3;
+    background-color: #F5F3F3;
+    color: #4E4B59;
 `
 
 export const ImageInputBoxText = styled.Text`
