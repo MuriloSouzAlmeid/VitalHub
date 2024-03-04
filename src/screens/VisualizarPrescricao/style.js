@@ -44,6 +44,8 @@ export const ImageInputBox = styled(InputContentBox)`
 
 export const ImageInputBoxField = styled(PerfilInputField)`
     padding: 46px;
+    justify-content: space-around;
+    align-items: center;
     flex-direction: row;
     gap: 5px;
 `

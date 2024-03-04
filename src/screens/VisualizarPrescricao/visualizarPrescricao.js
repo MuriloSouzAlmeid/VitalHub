@@ -9,6 +9,7 @@ import { UserImagePerfil } from "../../components/UserImage/styled";
 import { UserDataApointment } from "../Prontuario/style";
 import { ButtonImageSubmit, ButtonImageSubmitContent, ButtonImageSubmitText, CancelImageSubmit, ImageInputBox, ImageInputBoxField, ImageInputBoxText, ImageSubmitBox } from "./style";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { LinkCancel } from "../../components/Link";
 
 export const VisualizarPrescricao = () => {
     const dadosPrescricao = {
@@ -64,7 +65,7 @@ tudo normal`
                     <InputLabel>Exames médicos:</InputLabel>
                     <ImageInputBoxField>
                         <MaterialCommunityIcons name="file-upload-outline" size={24} color="#4E4B59" />
-                        <ImageInputBoxText>nenhuma foto informada</ImageInputBoxText>
+                        <ImageInputBoxText>Nenhuma foto informada</ImageInputBoxText>
                     </ImageInputBoxField>
                 </ImageInputBox>
                 <ImageSubmitBox>
@@ -91,6 +92,8 @@ tudo normal`
                     fieldHeight="60"
                     fieldvalue={dadosPrescricao.resultados}
                 />
+
+                <LinkCancel manipulationFunction={() => console.warn("voltando")}/>
             </ContainerForm>
         </ContainerPerfilPage>
     )
