@@ -9,7 +9,7 @@ import { ListaConsultas } from "../../components/FlatList";
 import { AgendarConsultaModal, ApointmentModal, CancelattionModal, MedicoModal } from "../../components/Modal";
 import { AgendarConsultaButton, HomeContent } from "./style";
 
-export const Home = () => {
+export const Home = ({navigation}) => {
     //state para o estado da lista
     const [statusFiltro, setStatusFiltro] = useState("agendada")
 
@@ -75,6 +75,69 @@ export const Home = () => {
             foto: "caminhoAqui",
             email: "guilerme.garbelini@gmail.com",
             situacao: "realizada"
+        },{
+            id: 7,
+            nome: "Miguel Souza",
+            idade: 14,
+            nivel: "Rotina",
+            horario: "14:00",
+            email: "miguel.souza@gmail.com",
+            foto: "../../assets/images/foto-murilo.jpg",
+            situacao: "agendada"
+        }, {
+            id: 8,
+            nome: "Miguel Souza",
+            idade: 14,
+            nivel: "Rotina",
+            horario: "14:00",
+            email: "miguel.souza@gmail.com",
+            foto: "../../assets/images/foto-murilo.jpg",
+            situacao: "agendada"
+        }, {
+            id: 9,
+            nome: "Miguel Souza",
+            idade: 14,
+            nivel: "Rotina",
+            horario: "14:00",
+            email: "miguel.souza@gmail.com",
+            foto: "../../assets/images/foto-murilo.jpg",
+            situacao: "agendada"
+        }, {
+            id: 10,
+            nome: "Miguel Souza",
+            idade: 14,
+            nivel: "Rotina",
+            horario: "14:00",
+            email: "miguel.souza@gmail.com",
+            foto: "../../assets/images/foto-murilo.jpg",
+            situacao: "agendada"
+        }, {
+            id: 11,
+            nome: "Miguel Souza",
+            idade: 14,
+            nivel: "Rotina",
+            horario: "14:00",
+            email: "miguel.souza@gmail.com",
+            foto: "../../assets/images/foto-murilo.jpg",
+            situacao: "agendada"
+        }, {
+            id: 12,
+            nome: "Miguel Souza",
+            idade: 14,
+            nivel: "Rotina",
+            horario: "14:00",
+            email: "miguel.souza@gmail.com",
+            foto: "../../assets/images/foto-murilo.jpg",
+            situacao: "agendada"
+        }, {
+            id: 13,
+            nome: "Miguel Souza",
+            idade: 14,
+            nivel: "Rotina",
+            horario: "14:00",
+            email: "miguel.souza@gmail.com",
+            foto: "../../assets/images/foto-murilo.jpg",
+            situacao: "agendada"
         }
     ]
 
@@ -133,7 +196,7 @@ export const Home = () => {
     )
 }
 
-export const HomePaciente = () => {
+export const HomePaciente = ({navigation}) => {
     //state para o estado da lista
     const [statusFiltro, setStatusFiltro] = useState("agendada")
 
@@ -274,6 +337,7 @@ export const HomePaciente = () => {
             <AgendarConsultaModal
                 visible={showModalAgendarConsulta}
                 setShowModal={setShowAgendarConsulta}
+                navigation={navigation}
             />
         </ContainerHome>
     )

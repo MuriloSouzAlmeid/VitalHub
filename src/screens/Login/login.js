@@ -8,32 +8,39 @@ import { ContainerApp } from "../../components/Container/style";
 import { Button, ButtonGoogle } from "../../components/Button/styled";
 import { LinkSemiBold } from "../../components/Link/style";
 
-export const Login = ({navigation}) =>
-    <ContainerApp>
-        <LogoVitalHub />
-        <TitleLogin>Entrar ou criar conta</TitleLogin>
-        <BoxInput>
-            <Input
-                placeholderText={"Usuário ou email"}
+export const Login = ({ navigation }) => {
+    const Login = async () => {
+        navigation.navigate("Main")
+    }
 
-            />
-            <Input
-                placeholderText={"Senha"}
+    return (
+        <ContainerApp>
+            <LogoVitalHub />
+            <TitleLogin>Entrar ou criar conta</TitleLogin>
+            <BoxInput>
+                <Input
+                    placeholderText={"Usuário ou email"}
 
-            />
-            <LinkRedefinirSenha onPress={() => navigation.navigate("RedefinirSenha")}>Esqueceu sua senha?</LinkRedefinirSenha>
-        </BoxInput>
-        <BoxButton>
-            <Button onPress={() => navigation.navigate("Home")}>
-                <ButtonTitle>Entrar</ButtonTitle>
-            </Button>
-            <ButtonGoogle onPress={() => navigation.navigate("VerificarEmail")}>
-                <AntDesign name="google" size={20} color={"#496BBA"} />
-                <ButtonTitleLight>Entrar com Google</ButtonTitleLight>
-            </ButtonGoogle>
-        </BoxButton>
-        <ContentAccount>
-            <TextAccount>Não tem conta?</TextAccount>
-            <LinkSemiBold onPress={() => navigation.navigate("Cadastro")} > Crie sua conta aqui</LinkSemiBold>
-        </ContentAccount>
-    </ContainerApp>
+                />
+                <Input
+                    placeholderText={"Senha"}
+
+                />
+                <LinkRedefinirSenha onPress={() => navigation.navigate("RedefinirSenha")}>Esqueceu sua senha?</LinkRedefinirSenha>
+            </BoxInput>
+            <BoxButton>
+                <Button onPress={() => Login()}>
+                    <ButtonTitle>Entrar</ButtonTitle>
+                </Button>
+                <ButtonGoogle onPress={() => navigation.navigate("VerificarEmail")}>
+                    <AntDesign name="google" size={20} color={"#496BBA"} />
+                    <ButtonTitleLight>Entrar com Google</ButtonTitleLight>
+                </ButtonGoogle>
+            </BoxButton>
+            <ContentAccount>
+                <TextAccount>Não tem conta?</TextAccount>
+                <LinkSemiBold onPress={() => navigation.replace("Cadastro")} > Crie sua conta aqui</LinkSemiBold>
+            </ContentAccount>
+        </ContainerApp>
+    )
+}

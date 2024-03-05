@@ -43,6 +43,7 @@ export const Input = ({
                 value={fieldvalue}
                 editable={editable}
                 fieldHeight={fieldHeight}
+                center={center}
             />
         )
     } else {

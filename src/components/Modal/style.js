@@ -18,7 +18,7 @@ export const ModalContent = styled.View`
 
 export const ModalConsultaForm = styled.View`
     width: 100%;
-    margin: 35px 0 150px;
+    margin: 35px 0 100px;
     gap: 20px;
 `
 

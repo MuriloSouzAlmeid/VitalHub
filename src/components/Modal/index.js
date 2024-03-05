@@ -8,6 +8,8 @@ import { useState } from "react"
 import { ButtonModalConsulta } from "../Button"
 import { BoxButtonRow } from "../Box/style"
 import { ButtonContinuarBox } from "../Box"
+import { ApointmentInputField } from "../Input/style"
+import { Input } from "../Input"
 
 export const CancelattionModal = ({ visible, setShowModalCancel, ...rest }) => {
     return (
@@ -27,7 +29,7 @@ export const CancelattionModal = ({ visible, setShowModalCancel, ...rest }) => {
                         <ButtonTitle>Confirmar</ButtonTitle>
                     </ButtonModal>
 
-                    <LinkCancel manipulationFunction={setShowModalCancel}>Cancelar</LinkCancel>
+                    <LinkCancel onPress={() => setShowModalCancel(false)}>Cancelar</LinkCancel>
                 </ModalContent>
             </PatientModal>
         </Modal>
@@ -60,14 +62,14 @@ export const ApointmentModal = ({ visible, setShowModalApointment, informacoes, 
                         <ButtonTitle>Inserir Prontuário</ButtonTitle>
                     </ButtonModal>
 
-                    <LinkCancel manipulationFunction={setShowModalApointment}>Cancelar</LinkCancel>
+                    <LinkCancel onPress={() => setShowModalApointment(false)}>Cancelar</LinkCancel>
                 </ModalContent>
             </PatientModal>
         </Modal>
     )
 }
 
-export const AgendarConsultaModal = ({ visible, setShowModal, ...resto }) => {
+export const AgendarConsultaModal = ({ visible, setShowModal, navigation,  ...resto }) => {
 
     // state para o nível de consulta
     const [nivelConsulta, setNivelConsulta] = useState("")
@@ -108,21 +110,18 @@ export const AgendarConsultaModal = ({ visible, setShowModal, ...resto }) => {
                         </BoxInputConsulta>
                         <BoxInputConsulta>
                             <ModalSubtitle>Informe a localizaçào desejada</ModalSubtitle>
-                            <BoxButtonRow>
-                                <ButtonModalConsulta
-                                    buttonText={"Informe a localização"}
-                                    situacao={nivelConsulta}
-                                    manipulationFunction={setNivelConsulta}
-                                    actived={false}
-                                    widthValue={"100"}
+                                <Input
+                                    placeholderText={"Informe a localização"}
+                                    apointment
+                                    editable
+                                    center
                                 />
-                            </BoxButtonRow>
                         </BoxInputConsulta>
                     </ModalConsultaForm>
-                    <ButtonModal>
+                    <ButtonModal onPress={() => navigation.navigate("SelecionarClinica")}>
                         <ButtonTitle>Continuar</ButtonTitle>
                     </ButtonModal>
-                    <LinkCancel manipulationFunction={setShowModal}>Cancelar</LinkCancel>
+                    <LinkCancel onPress={() => setShowModal(false)}>Cancelar</LinkCancel>
                 </ConsultaModal>
             </PatientModal>
         </Modal>

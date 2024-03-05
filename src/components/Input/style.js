@@ -45,4 +45,8 @@ export const ApointmentInputField = styled(InputField).attrs({
     background-color: transparent;
     border-color: #49B3BA;
     padding-bottom: ${props => `${props.fieldHeight}px`};
+    ${props => props.center && css`
+        justify-content: center;
+        align-items: center;
+    `}
 `

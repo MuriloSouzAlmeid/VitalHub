@@ -23,8 +23,8 @@ export const Cadastro = ({navigation}) =>
                 placeholderText={"Confirmar senha"}
             />
         </BoxInput>
-        <Button onPress={() => navigation.navigate("VerificarEmail")}>
-            <ButtonTitle onPress={() => navigation.navigate("VerificarEmail")}>Cadastrar</ButtonTitle>
+        <Button onPress={() => navigation.replace("Login")}>
+            <ButtonTitle onPress={() => navigation.replace("Login")}>Cadastrar</ButtonTitle>
         </Button>
-        <LinkCancel onPress={() => navigation.navigate("Login")} >Cancelar</LinkCancel>
+        <LinkCancel onPress={() => navigation.replace("Login")} >Cancelar</LinkCancel>
     </ContainerApp>

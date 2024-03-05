@@ -14,6 +14,7 @@ import { PaginaDeProntuario } from './src/screens/Prontuario/prontuario';
 import { SelecionarClinica, SelecionarData, SelecionarMedico } from './src/screens/PaginasSelecao/peginas-selecao';
 import { LocalConsulta } from './src/screens/LocalConsulta/localConsulta';
 import { VisualizarPrescricao } from './src/screens/VisualizarPrescricao/visualizarPrescricao';
+import Main from './src/screens/Main/Main';
 
 //instância de um objeto da classe Native Stack Navigator para acessar seus métodos
 const Stack = createNativeStackNavigator();
@@ -43,17 +44,21 @@ export default function App() {
           {/* Telas - a tela a ser carregada
                 name: nome da tela
                 component: o componente que será carregado como tela
-                optios(title): título da tela      
+                options(title): título da tela      
           */}
-          <Stack.Screen 
+          {/* <Stack.Screen 
             name="Navegacao" 
             component={Navegacao}
             options={{title: "Navegação"}}  
-          />
+          /> */}
           <Stack.Screen 
             name="Login" 
             component={Login}
             options={{title: "Login"}}  
+          />
+          <Stack.Screen
+            name="Main"
+            component={Main}
           />
           <Stack.Screen 
             name="Cadastro" 
