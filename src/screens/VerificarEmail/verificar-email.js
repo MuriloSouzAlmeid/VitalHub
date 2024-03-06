@@ -1,3 +1,4 @@
+import { TouchableOpacity } from "react-native";
 import { BoxInputRow } from "../../components/Box/style";
 import { Button } from "../../components/Button/styled";
 import { ContainerApp } from "../../components/Container/style";
@@ -5,9 +6,18 @@ import { Input } from "../../components/Input";
 import { LinkReenviarEmail, LinkVerifyEmail } from "../../components/Link";
 import { LogoVitalHub } from "../../components/Logo";
 import { ButtonTitle, TextRegular, TitleVerificarEmail } from "../../components/Text/style"
+import { IconCntainer, IconImage } from "../../components/NavigationIcons/style";
+import { IconContainer } from "../../components/NavigationIcons/style";
 
-export const VerificarEmail = ({navigation}) =>
+export const VerificarEmail = ({ navigation }) =>
     <ContainerApp>
+        <IconContainer
+            onPress={() => navigation.replace("Login")}
+        >
+            <IconImage
+                source={require("../../assets/images/fechar_icon.png")}
+            />
+        </IconContainer>
         <LogoVitalHub />
         <TitleVerificarEmail>
             Verifique seu email
@@ -42,10 +52,10 @@ export const VerificarEmail = ({navigation}) =>
                 verifyEmail={true}
                 maxLength={1}
                 keyType="numeric"
-            /> 
+            />
         </BoxInputRow>
-        <Button onPress={() => navigation.navigate("Home")}>
-            <ButtonTitle onPress={() => navigation.navigate("Home")}>Entrar</ButtonTitle>
+        <Button onPress={() => navigation.navigate("RedefinirSenha")}>
+            <ButtonTitle onPress={() => navigation.navigate("RedefinirSenha")}>Confirmar</ButtonTitle>
         </Button>
         <LinkReenviarEmail url={"https://www.google.com/intl/pt-BR/gmail/about/"}>Reenviar Código</LinkReenviarEmail>
     </ContainerApp>

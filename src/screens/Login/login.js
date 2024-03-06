@@ -10,7 +10,7 @@ import { LinkSemiBold } from "../../components/Link/style";
 
 export const Login = ({ navigation }) => {
     const Login = async () => {
-        navigation.navigate("Main")
+        navigation.replace("Main")
     }
 
     return (
@@ -26,13 +26,13 @@ export const Login = ({ navigation }) => {
                     placeholderText={"Senha"}
 
                 />
-                <LinkRedefinirSenha onPress={() => navigation.navigate("RedefinirSenha")}>Esqueceu sua senha?</LinkRedefinirSenha>
+                <LinkRedefinirSenha onPress={() => navigation.navigate("ReceberEmail")}>Esqueceu sua senha?</LinkRedefinirSenha>
             </BoxInput>
             <BoxButton>
                 <Button onPress={() => Login()}>
                     <ButtonTitle>Entrar</ButtonTitle>
                 </Button>
-                <ButtonGoogle onPress={() => navigation.navigate("VerificarEmail")}>
+                <ButtonGoogle onPress={() => navigation.navigate("Main")}>
                     <AntDesign name="google" size={20} color={"#496BBA"} />
                     <ButtonTitleLight>Entrar com Google</ButtonTitleLight>
                 </ButtonGoogle>

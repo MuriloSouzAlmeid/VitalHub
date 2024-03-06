@@ -25,8 +25,8 @@ export const CancelattionModal = ({ visible, setShowModalCancel, ...rest }) => {
 
 
 
-                    <ButtonModal>
-                        <ButtonTitle>Confirmar</ButtonTitle>
+                    <ButtonModal onPress={() => setShowModalCancel(false)}>
+                        <ButtonTitle onPress={() => setShowModalCancel(false)}>Confirmar</ButtonTitle>
                     </ButtonModal>
 
                     <LinkCancel onPress={() => setShowModalCancel(false)}>Cancelar</LinkCancel>
@@ -36,12 +36,12 @@ export const CancelattionModal = ({ visible, setShowModalCancel, ...rest }) => {
     )
 }
 
-export const ApointmentModal = ({ visible, setShowModalApointment, informacoes, ...resto }) => {
+export const ApointmentModal = ({ visible, setShowModalApointment, informacoes, navigation, ...resto }) => {
 
 
     return (
         <Modal {...resto}
-            visible={visible}
+            visible={visible} 
             transparent={true}
             animationType="fade"
         >
@@ -58,8 +58,14 @@ export const ApointmentModal = ({ visible, setShowModalApointment, informacoes, 
                         <ModalText>{informacoes.email}</ModalText>
                     </ModalTextRow>
 
-                    <ButtonModal>
-                        <ButtonTitle>Inserir Prontuário</ButtonTitle>
+                    <ButtonModal onPress={() => {
+                        navigation.navigate("PaginaDeProntuario")
+                        setShowModalApointment(false)
+                        }}>
+                        <ButtonTitle onPress={() => {
+                            navigation.navigate("PaginaDeProntuario")
+                            setShowModalApointment(false)
+                        }}>Inserir Prontuário</ButtonTitle>
                     </ButtonModal>
 
                     <LinkCancel onPress={() => setShowModalApointment(false)}>Cancelar</LinkCancel>

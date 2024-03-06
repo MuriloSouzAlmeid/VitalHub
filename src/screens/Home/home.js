@@ -145,7 +145,7 @@ export const Home = ({navigation}) => {
         <ContainerHome>
             <Header />
             <Calendario />
-            <ContainerApp>
+            <HomeContent>
                 <BoxButtonRow>
                     <ButtonHome
                         buttonText={"Agendadas"}
@@ -173,7 +173,7 @@ export const Home = ({navigation}) => {
                     onPressApointment={() => setShowModalApointment(true)}
                     loadInfoConsulta={setInfoConsulta}
                 />
-            </ContainerApp>
+            </HomeContent>
 
 
             {/* Modal Cancelar */}
@@ -190,6 +190,7 @@ export const Home = ({navigation}) => {
                 setShowModalApointment={setShowModalApointment}
                 visible={showModalApointment}
                 informacoes={infoConsulta}
+                navigation={navigation}
             />
 
         </ContainerHome>
@@ -302,7 +303,7 @@ export const HomePaciente = ({navigation}) => {
                     dados={consultasAgendadas}
                     statusConsulta={statusFiltro}
                     onPressCancel={() => setShowModalCancel(true)}
-                    onPressApointment={() => setShowModalApointment(true)}
+                    onPressApointment={() => navigation.navigate("VisualizarPrescricao")}
                     loadInfoConsulta={setInfoConsulta}
                 />
             </HomeContent>

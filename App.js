@@ -9,12 +9,13 @@ import { Cadastro } from './src/screens/Cadastro/cadastro';
 import { RedefinirSenha } from './src/screens/RedefinirSenha/redefinir-senha';
 import { VerificarEmail } from './src/screens/VerificarEmail/verificar-email';
 import { Home, HomePaciente } from './src/screens/Home/home';
-import { PerfilDeUsuario } from './src/screens/PerfilDeUsuario/perfil-de-usuario';
+import { PerfilDeMedico, PerfilDeUsuario } from './src/screens/PerfilDeUsuario/perfil-de-usuario';
 import { PaginaDeProntuario } from './src/screens/Prontuario/prontuario';
 import { SelecionarClinica, SelecionarData, SelecionarMedico } from './src/screens/PaginasSelecao/peginas-selecao';
 import { LocalConsulta } from './src/screens/LocalConsulta/localConsulta';
 import { VisualizarPrescricao } from './src/screens/VisualizarPrescricao/visualizarPrescricao';
 import Main from './src/screens/Main/Main';
+import { ReceberEmail } from './src/screens/ReceberEmail/receberEmail';
 
 //instância de um objeto da classe Native Stack Navigator para acessar seus métodos
 const Stack = createNativeStackNavigator();
@@ -64,6 +65,11 @@ export default function App() {
             name="Cadastro" 
             component={Cadastro}
             options={{title: "Cadastro"}}  
+          />
+          <Stack.Screen
+            name="ReceberEmail"
+            component={ReceberEmail}
+            options={{title: "Receber Email"}}
           />
           <Stack.Screen 
             name="RedefinirSenha"

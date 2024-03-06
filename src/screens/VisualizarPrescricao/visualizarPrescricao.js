@@ -12,7 +12,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { LinkCancel } from "../../components/Link";
 import { LinkSemiBoldCancel, LinkVoltar } from "../../components/Link/style";
 
-export const VisualizarPrescricao = () => {
+export const VisualizarPrescricao = ({navigation}) => {
     const dadosPrescricao = {
         descricaoConsulta: "O paciente possuí uma infecção no ouvido. Necessário repouse de 2 dias e acompanhamento médico constante",
         diagnostico: "Infecção no ouvido",
@@ -94,7 +94,7 @@ tudo normal`
                     fieldvalue={dadosPrescricao.resultados}
                 />
 
-                <LinkVoltar>
+                <LinkVoltar onPress={() => navigation.replace("Main")}>
                     Voltar
                 </LinkVoltar>
             </ContainerForm>

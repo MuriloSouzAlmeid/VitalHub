@@ -9,9 +9,9 @@ import { BoxInputField } from "../../components/Box"
 import { Button } from "../../components/Button/styled"
 import { LinkCancel } from "../../components/Link"
 
-export const PaginaDeProntuario = () => {
+export const PaginaDeProntuario = ({navigation}) => {
 
-    const [editavel, setEditavel] = useState(true)
+    const [editavel, setEditavel] = useState(false)
 
     return (
         <ContainerProntuario>
@@ -19,10 +19,10 @@ export const PaginaDeProntuario = () => {
                 source={require("../../assets/images/user1-image.png")}
             />
             <ProntuarioBox>
-                <UserNamePerfilText editavel={editavel}>Nome do Usuário</UserNamePerfilText>
+                <UserNamePerfilText editavel={true}>Nome do Usuário</UserNamePerfilText>
                 <UserDataApointment>
                     <AgeUserText>18 anos</AgeUserText>
-                    <EmailUserText editavel={editavel}>exemplo.email@gmail.com</EmailUserText>
+                    <EmailUserText editavel={true}>exemplo.email@gmail.com</EmailUserText>
                 </UserDataApointment>
                 <ApointmentFormBox>
                     <BoxInputField
@@ -56,7 +56,9 @@ export const PaginaDeProntuario = () => {
                     <ButtonTitle>Editar</ButtonTitle>
                 </Button>}
                     
-            {editavel ? <LinkCancel manipulationFunction={setEditavel}>Cancelar</LinkCancel> : null}
+            <LinkCancel onPress={ 
+                editavel ? () => setEditavel(false) : () => navigation.replace("Main")
+            }>Cancelar</LinkCancel>
             </ProntuarioBox>
         </ContainerProntuario>
     )

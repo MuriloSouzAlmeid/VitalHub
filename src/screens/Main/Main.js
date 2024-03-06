@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { Home } from "../Home/home";
-import { PerfilDeUsuario } from "../PerfilDeUsuario/perfil-de-usuario";
+import { Home, HomePaciente } from "../Home/home";
+import { PerfilDeMedico, PerfilDeUsuario } from "../PerfilDeUsuario/perfil-de-usuario";
 import { ContentIcon,  TextIcon} from "./style";
 
 import {FontAwesome, FontAwesome5} from "@expo/vector-icons"
@@ -48,9 +48,13 @@ const Main = () => {
                 }
             })}
         >
-            <BottomTab.Screen
+            {/* <BottomTab.Screen
                 name="Home"
                 component={Home}
+            /> */}
+            <BottomTab.Screen
+                name="PaginaHomePaciente"
+                component={HomePaciente}
             />
             <BottomTab.Screen
                 name="PerfilDeUsuario"
