@@ -1,17 +1,22 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { Home, HomePaciente } from "../Home/home";
 import { PerfilDeMedico, PerfilDeUsuario } from "../PerfilDeUsuario/perfil-de-usuario";
-import { ContentIcon,  TextIcon} from "./style";
+import { ContentIcon, TextIcon } from "./style";
 
-import {FontAwesome, FontAwesome5} from "@expo/vector-icons"
+import { FontAwesome, FontAwesome5 } from "@expo/vector-icons"
+import { useState } from "react";
 
 const BottomTab = createBottomTabNavigator();
 
-const Main = () => {
+const Main = ({route}) => {
+    const ativado = route.params
+
+    const [perfil, setPerfil] = useState("paciente")
+
     return (
         <BottomTab.Navigator
             initialRouteName="Home"
-            screenOptions={({route}) => ({
+            screenOptions={({ route }) => ({
                 tabBarStyle: {
                     backgroundColor: "#FFFFFF",
                     height: 80
@@ -25,22 +30,22 @@ const Main = () => {
                 headerShown: false,
 
                 //tratativa com o item que está focado
-                tabBarIcon: ({focused}) => {
-                    if(route.name === "Home"){
-                        return(
+                tabBarIcon: ({ focused }) => {
+                    if (route.name === "Home") {
+                        return (
                             <ContentIcon
                                 tabBarActiveBackgroundColor={focused ? "#ECF2FF" : "transparent"}
                             >
-                                <FontAwesome name="calendar" size={18} color={focused ? "#607EC5" : "#4E4B59"}/>
+                                <FontAwesome name="calendar" size={18} color={focused ? "#607EC5" : "#4E4B59"} />
                                 {focused && <TextIcon>Agenda</TextIcon>}
                             </ContentIcon>
                         )
-                    }else{
-                        return(
+                    } else {
+                        return (
                             <ContentIcon
                                 tabBarActiveBackgroundColor={focused ? "#ECF2FF" : "transparent"}
                             >
-                                <FontAwesome5 name="user-circle" size={18} color={focused ? "#607EC5" : "#4E4B59"}/>
+                                <FontAwesome5 name="user-circle" size={18} color={focused ? "#607EC5" : "#4E4B59"} />
                                 {focused && <TextIcon>Perfil</TextIcon>}
                             </ContentIcon>
                         )
@@ -52,10 +57,19 @@ const Main = () => {
                 name="Home"
                 component={Home}
             /> */}
-            <BottomTab.Screen
-                name="PaginaHomePaciente"
-                component={HomePaciente}
-            />
+            {(perfil === "paciente") ? (
+                <BottomTab.Screen
+                    name="PaginaHomePaciente"
+                    component={HomePaciente}
+                    initialParams={{ativado: ativado ? true : false }}
+                />
+            ) : (
+                <BottomTab.Screen
+                    name="Home"
+                    component={Home}
+                />
+            )}
+
             <BottomTab.Screen
                 name="PerfilDeUsuario"
                 component={PerfilDeUsuario}

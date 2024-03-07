@@ -124,7 +124,10 @@ export const AgendarConsultaModal = ({ visible, setShowModal, navigation,  ...re
                                 />
                         </BoxInputConsulta>
                     </ModalConsultaForm>
-                    <ButtonModal onPress={() => navigation.navigate("SelecionarClinica")}>
+                    <ButtonModal onPress={() => {
+                            setShowModal(false)
+                            navigation.replace("SelecionarClinica")
+                        }}>
                         <ButtonTitle>Continuar</ButtonTitle>
                     </ButtonModal>
                     <LinkCancel onPress={() => setShowModal(false)}>Cancelar</LinkCancel>
@@ -134,7 +137,7 @@ export const AgendarConsultaModal = ({ visible, setShowModal, navigation,  ...re
     )
 }
 
-export const ConfirmarConsultaModal = ({ visible, setShowModal = null, ...resto }) => {
+export const ConfirmarConsultaModal = ({ visible, setShowModal = null, navigation, ...resto }) => {
     return (
         <Modal
             {...resto}
@@ -168,7 +171,9 @@ export const ConfirmarConsultaModal = ({ visible, setShowModal = null, ...resto 
                         </DadosConsultaBox>
                     </ResumoConsultaBox>
                     <ButtonContinuarBox
-                        manipulationFunction={() => setShowModal(false)}
+                        manipulationFunction={() => navigation.replace("Main")}
+                        functionCancel={() => setShowModal(false)}
+                        buttonText="Confirmar"
                     />
                 </ModalContent>
             </PatientModal>

@@ -26,13 +26,13 @@ export const BoxInputField = ({
         />
     </InputContentBox>
 
-export const ButtonContinuarBox = ({manipulationFunction = null, openModalFunction = null}) => 
+export const ButtonContinuarBox = ({manipulationFunction = null, openModalFunction = null, functionCancel = null, buttonText = "Continuar"}) => 
     <>
-        <ButtonModal onPress={() => manipulationFunction(true)}>
-            <ButtonTitle>Continuar</ButtonTitle>
+        <ButtonModal onPress={manipulationFunction}>
+            <ButtonTitle>{buttonText}</ButtonTitle>
         </ButtonModal>
 
-        <LinkCancel manipulationFunction={manipulationFunction}>Cancelar</LinkCancel>
+        <LinkCancel onPress={functionCancel}>Cancelar</LinkCancel>
     </>
 
 export const BoxInputSelect = ({labelText}) => {

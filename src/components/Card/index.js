@@ -2,6 +2,7 @@ import { CancelText, CardBox, CardContent, CardTextCancelApointment, DataCard, H
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { UserImageCart } from "../UserImage/styled";
+import { useState } from "react";
 
 export const CardConsulta = ({ consulta, statusConsulta, onPressCancel, onPressApointment, loadInfoConsulta }) => {
 
@@ -9,6 +10,8 @@ export const CardConsulta = ({ consulta, statusConsulta, onPressCancel, onPressA
         onPressApointment();
         loadInfoConsulta(consulta);
     }
+
+    // const [perfil, setPerfil] = useState("paciente")
 
     return (
         <CardBox>

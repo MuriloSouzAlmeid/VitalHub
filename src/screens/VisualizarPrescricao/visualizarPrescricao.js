@@ -83,7 +83,7 @@ tudo normal`
                 </ImageSubmitBox>
 
                 <View
-                    style={{ height: 0.1, borderBottomWidth: 2, borderStyle: "solid", borderColor: "#8C8A97", width: "100%", borderRadius: 5 }}
+                    style={{ height: 2, backgroundColor: "#8C8A97", width: "100%", borderRadius: 5 }}
                 >
                 </View>
 

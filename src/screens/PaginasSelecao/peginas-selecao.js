@@ -6,7 +6,7 @@ import { InputSelect } from "../../components/Input";
 import { ConfirmarConsultaModal } from "../../components/Modal";
 import { ContainerSelectPage, TitleSelecao } from "./style";
 
-export const SelecionarClinica = () => {
+export const SelecionarClinica = ({navigation}) => {
     const listaClinicas = [
         {
             id: 1,
@@ -44,12 +44,15 @@ export const SelecionarClinica = () => {
             <ListaClinicas
                 dados={listaClinicas}
             />
-            <ButtonContinuarBox/>
+            <ButtonContinuarBox
+                manipulationFunction={() => {navigation.navigate("SelecionarMedico")}}
+                functionCancel={() => navigation.replace("Main", {ativado: true})}
+            />
         </ContainerSelectPage>
     )
 }
 
-export const SelecionarMedico = () => {
+export const SelecionarMedico = ({navigation}) => {
     const listaMedicos = [
         {
             id: 1,
@@ -78,12 +81,15 @@ export const SelecionarMedico = () => {
             <ListaMedicos
                 dados={listaMedicos}
             />
-            <ButtonContinuarBox/>
+            <ButtonContinuarBox
+                manipulationFunction={() => navigation.navigate("SelecionarData")}
+                functionCancel={() => navigation.replace("Main", {ativado: true})}
+            />
         </ContainerSelectPage>
     )
 }
 
-export const SelecionarData = () => {
+export const SelecionarData = ({navigation}) => {
     const [showModalConfirmarConsulta, setShowModalConfirmarConsulta] = useState(false)
 
     return (
@@ -94,11 +100,12 @@ export const SelecionarData = () => {
                 labelText={"Selecione um horário disponível:"}
             />
             <ButtonContinuarBox
-                manipulationFunction={setShowModalConfirmarConsulta}
+                manipulationFunction={() => setShowModalConfirmarConsulta(true)}
+                functionCancel={() => navigation.replace("Main", {ativado: true})}
             />
 
             <ConfirmarConsultaModal
-
+                navigation={navigation}
                 visible={showModalConfirmarConsulta}
                 setShowModal={setShowModalConfirmarConsulta}
             />

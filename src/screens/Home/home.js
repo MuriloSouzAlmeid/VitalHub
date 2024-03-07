@@ -4,7 +4,7 @@ import { ContainerApp, ContainerHome } from "../../components/Container/style";
 import { BoxButtonRow } from "../../components/Box/style";
 import { FontAwesome } from '@expo/vector-icons';
 import { ButtonHome } from "../../components/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ListaConsultas } from "../../components/FlatList";
 import { AgendarConsultaModal, ApointmentModal, CancelattionModal, MedicoModal } from "../../components/Modal";
 import { AgendarConsultaButton, HomeContent } from "./style";
@@ -197,7 +197,9 @@ export const Home = ({navigation}) => {
     )
 }
 
-export const HomePaciente = ({navigation}) => {
+export const HomePaciente = ({navigation, route}) => {
+    const {ativado} = route.params
+
     //state para o estado da lista
     const [statusFiltro, setStatusFiltro] = useState("agendada")
 
@@ -273,6 +275,12 @@ export const HomePaciente = ({navigation}) => {
             situacao: "realizada"
         }
     ]
+
+    useEffect(() => {
+        if(ativado){
+            setShowAgendarConsulta(true)
+        }
+    }, [])
 
     return (
         <ContainerHome>
