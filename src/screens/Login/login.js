@@ -32,7 +32,7 @@ export const Login = ({ navigation }) => {
                 <Button onPress={() => Login()}>
                     <ButtonTitle>Entrar</ButtonTitle>
                 </Button>
-                <ButtonGoogle onPress={() => navigation.navigate("Main")}>
+                <ButtonGoogle onPress={() => navigation.navigate("LocalConsulta")}>
                     <AntDesign name="google" size={20} color={"#496BBA"} />
                     <ButtonTitleLight>Entrar com Google</ButtonTitleLight>
                 </ButtonGoogle>
