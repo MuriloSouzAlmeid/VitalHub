@@ -25,3 +25,14 @@ export const ButtonGoogle = styled(ButtonLight)`
 export const ButtonModal = styled(Button)`
     width: 95%;
 ` 
+
+export const ButtonCamera = styled(Button)`
+    width: auto;
+    padding: 12px;
+    align-items: center;
+    justify-content: center;
+    ${props => props.close && css`
+        background-color: #E35B5B;
+        border: 1px solid #E35B5B;
+    `}
+`

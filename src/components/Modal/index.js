@@ -1,15 +1,20 @@
-import { Modal } from "react-native"
-import { BoxInputConsulta, ConsultaModal, DadosConsultaBox, DadosConsultaText, DadosConsultaTitle, LinhaDadosConsulta, ModalConsultaForm, ModalContent, ModalSubtitle, ModalText, ModalTextRow, PatientModal, ResumoConsultaBox } from "./style"
+import { Modal, StyleSheet, View } from "react-native"
+import { BoxInputConsulta, CameraContent, ConsultaModal, DadosConsultaBox, DadosConsultaText, DadosConsultaTitle, LinhaDadosConsulta, ModalConsultaForm, ModalContent, ModalSubtitle, ModalText, ModalTextRow, PatientModal, ResumoConsultaBox } from "./style"
 import { ButtonTitle, SemiBoldText, TextRegular, Title } from "../Text/style"
-import { ButtonModal } from "../Button/styled"
+import { ButtonCamera, ButtonModal } from "../Button/styled"
 import { LinkCancel } from "../Link"
 import { UserImageModal } from "../UserImage/styled"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { ButtonModalConsulta } from "../Button"
 import { BoxButtonRow } from "../Box/style"
 import { ButtonContinuarBox } from "../Box"
 import { ApointmentInputField } from "../Input/style"
 import { Input } from "../Input"
+import { AntDesign } from '@expo/vector-icons';
+
+import * as MediaLibrary from 'expo-media-library'
+
+import { Camera, CameraType } from 'expo-camera'
 
 export const CancelattionModal = ({ visible, setShowModalCancel, ...rest }) => {
     return (
@@ -41,7 +46,7 @@ export const ApointmentModal = ({ visible, setShowModalApointment, informacoes, 
 
     return (
         <Modal {...resto}
-            visible={visible} 
+            visible={visible}
             transparent={true}
             animationType="fade"
         >
@@ -61,7 +66,7 @@ export const ApointmentModal = ({ visible, setShowModalApointment, informacoes, 
                     <ButtonModal onPress={() => {
                         navigation.navigate("PaginaDeProntuario")
                         setShowModalApointment(false)
-                        }}>
+                    }}>
                         <ButtonTitle onPress={() => {
                             navigation.navigate("PaginaDeProntuario")
                             setShowModalApointment(false)
@@ -75,7 +80,7 @@ export const ApointmentModal = ({ visible, setShowModalApointment, informacoes, 
     )
 }
 
-export const AgendarConsultaModal = ({ visible, setShowModal, navigation,  ...resto }) => {
+export const AgendarConsultaModal = ({ visible, setShowModal, navigation, ...resto }) => {
 
     // state para o nível de consulta
     const [nivelConsulta, setNivelConsulta] = useState("")
@@ -116,18 +121,18 @@ export const AgendarConsultaModal = ({ visible, setShowModal, navigation,  ...re
                         </BoxInputConsulta>
                         <BoxInputConsulta>
                             <ModalSubtitle>Informe a localizaçào desejada</ModalSubtitle>
-                                <Input
-                                    placeholderText={"Informe a localização"}
-                                    apointment
-                                    editable
-                                    center
-                                />
+                            <Input
+                                placeholderText={"Informe a localização"}
+                                apointment
+                                editable
+                                center
+                            />
                         </BoxInputConsulta>
                     </ModalConsultaForm>
                     <ButtonModal onPress={() => {
-                            setShowModal(false)
-                            navigation.replace("SelecionarClinica")
-                        }}>
+                        setShowModal(false)
+                        navigation.replace("SelecionarClinica")
+                    }}>
                         <ButtonTitle>Continuar</ButtonTitle>
                     </ButtonModal>
                     <LinkCancel onPress={() => setShowModal(false)}>Cancelar</LinkCancel>
@@ -181,7 +186,7 @@ export const ConfirmarConsultaModal = ({ visible, setShowModal = null, navigatio
     )
 }
 
-export const MedicoModal = ({visible, setShowModal = null, ...resto}) => (
+export const MedicoModal = ({ visible, setShowModal = null, ...resto }) => (
     <Modal
         {...resto}
         visible={visible}
@@ -189,24 +194,71 @@ export const MedicoModal = ({visible, setShowModal = null, ...resto}) => (
         animationType="fade"
     >
         <PatientModal>
-                <ModalContent>
-                    <UserImageModal
-                        source={require("../../assets/images/doctor_image_modal.png")}
-                    />
+            <ModalContent>
+                <UserImageModal
+                    source={require("../../assets/images/doctor_image_modal.png")}
+                />
 
-                    <Title>Dr. Fulano</Title>
+                <Title>Dr. Fulano</Title>
 
-                    <ModalTextRow>
-                        <ModalText>Clínico Geral</ModalText>
-                        <ModalText>CRM-11204</ModalText>
-                    </ModalTextRow>
+                <ModalTextRow>
+                    <ModalText>Clínico Geral</ModalText>
+                    <ModalText>CRM-11204</ModalText>
+                </ModalTextRow>
 
-                    <ButtonModal>
-                        <ButtonTitle>Ver Local da Consulta</ButtonTitle>
-                    </ButtonModal>
+                <ButtonModal>
+                    <ButtonTitle>Ver Local da Consulta</ButtonTitle>
+                </ButtonModal>
 
-                    <LinkCancel manipulationFunction={() => setShowModal(false)}>Cancelar</LinkCancel>
-                </ModalContent>
-            </PatientModal>
+                <LinkCancel manipulationFunction={() => setShowModal(false)}>Cancelar</LinkCancel>
+            </ModalContent>
+        </PatientModal>
     </Modal>
 )
+
+export const ModalCamera = ({ visible, setShowModal = null, ...resto }) => {
+    const cameraRef = useRef(null)
+
+    const [tipoCamera, setTipoCamera] = useState(CameraType.back)
+    const [foto, setFoto] = useState(null)
+
+    return (
+        <Modal {...resto}
+            visible={visible}
+            transparent
+            animationType="fade"
+
+        >
+            <PatientModal>
+                <CameraContent>
+                    <View style={{ height: "90%", width: "100%", borderRadius: 15 }}>
+                        <Camera
+                            ref={cameraRef}
+                            ratio='15:9'
+                            type={tipoCamera}
+                            style={styles.camera}
+                        />
+                    </View>
+                    <View style={{width: "100%", flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 30}}>
+                        <ButtonCamera>
+                            <AntDesign name="camera" size={24} color="white" />
+                        </ButtonCamera>
+                        <ButtonCamera 
+                            onPress={() => setShowModal(false)}
+                            close
+                        >
+                            <AntDesign name="close" size={24} color="white" />
+                        </ButtonCamera>
+                    </View>
+                </CameraContent>
+            </PatientModal>
+        </Modal>
+    )
+}
+
+const styles = StyleSheet.create({
+    camera: {
+        width: "100%",
+        height: "100%"
+    }
+})

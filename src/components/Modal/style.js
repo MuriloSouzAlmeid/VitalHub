@@ -75,3 +75,10 @@ export const LinhaDadosConsulta = styled.View`
     width: 100%;
     gap: 8px;
 `
+
+export const CameraContent = styled.View`
+    width: 90%;
+    height: 80%;
+    align-items: center;
+    justify-content: space-between;
+`
