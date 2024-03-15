@@ -34,14 +34,8 @@ tudo normal`
     }
 
     const [openModalCamera, setOpenModalCamera] = useState(false)
-
-
-    useEffect(() => {
-        (async () => {
-            const { status: cameraStatus } = Camera.requestCameraPermissionsAsync()
-            const { status: mediaStatus } = MediaLibrary.requestPermissionsAsync()
-        })()
-    }, [])
+    
+    const [foto, setFoto] = useState(null)
 
     return (
         <>
@@ -121,6 +115,7 @@ tudo normal`
             <ModalCamera
                 visible={openModalCamera}
                 setShowModal={setOpenModalCamera}
+                enviarFoto={setFoto}
             />
         </>
     )

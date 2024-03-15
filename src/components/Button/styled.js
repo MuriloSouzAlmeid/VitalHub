@@ -28,7 +28,7 @@ export const ButtonModal = styled(Button)`
 
 export const ButtonCamera = styled(Button)`
     width: auto;
-    padding: 12px;
+    padding: 12px 30px;
     align-items: center;
     justify-content: center;
     ${props => props.close && css`

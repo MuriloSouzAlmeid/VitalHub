@@ -4,7 +4,7 @@ import { ButtonTitle, SemiBoldText, TextRegular, Title } from "../Text/style"
 import { ButtonCamera, ButtonModal } from "../Button/styled"
 import { LinkCancel } from "../Link"
 import { UserImageModal } from "../UserImage/styled"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { ButtonModalConsulta } from "../Button"
 import { BoxButtonRow } from "../Box/style"
 import { ButtonContinuarBox } from "../Box"
@@ -216,11 +216,29 @@ export const MedicoModal = ({ visible, setShowModal = null, ...resto }) => (
     </Modal>
 )
 
-export const ModalCamera = ({ visible, setShowModal = null, ...resto }) => {
+export const ModalCamera = ({ visible, setShowModal = null, enviarFoto, ...resto  }) => {
     const cameraRef = useRef(null)
 
-    const [tipoCamera, setTipoCamera] = useState(CameraType.back)
-    const [foto, setFoto] = useState(null)
+    useEffect(() => {
+        (async () => {
+            const { status: cameraStatus } = Camera.requestCameraPermissionsAsync()
+            const { status: mediaStatus } = MediaLibrary.requestPermissionsAsync()
+        })()
+    }, [])
+
+    const CapturarFoto = async () => {
+        if(cameraRef){
+            const captura = await cameraRef.current.takePictureAsync()
+
+            enviarFoto(captura.uri)
+
+            .then(() => {
+                console.warn("Foto capturada com sucesso")
+            }).catch( erro => {
+                console.warn(erro)
+            })
+        }
+    }
 
     return (
         <Modal {...resto}
@@ -235,12 +253,12 @@ export const ModalCamera = ({ visible, setShowModal = null, ...resto }) => {
                         <Camera
                             ref={cameraRef}
                             ratio='15:9'
-                            type={tipoCamera}
+                            type={CameraType.back}
                             style={styles.camera}
                         />
                     </View>
                     <View style={{width: "100%", flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 30}}>
-                        <ButtonCamera>
+                        <ButtonCamera onPress={() => CapturarFoto()}>
                             <AntDesign name="camera" size={24} color="white" />
                         </ButtonCamera>
                         <ButtonCamera 
